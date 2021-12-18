@@ -1,5 +1,5 @@
-import { WXbot } from './wx';
+export { wxNotify } from './wxNotify';
 
-export { WXbot } from './wx';
+import { toMyGirlMsg } from './toMyGirlMsg';
 
-WXbot('测试啊');
+toMyGirlMsg();

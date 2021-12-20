@@ -6,9 +6,14 @@
 
 - [x] WXWorkNotify：自定义应用通知
 - [x] WXbot：群机器人通知
-- [x] 获取天气
-- [x] 获取诗句、一句一言、情话、励志英语
-- [x] 60s了解世界  
+
+## 接口数据提供者
+
+- <https://lovelive.tools/>
+- <https://api.vvhan.com/> （稳定性待确定）
+- 天行数据：<https://www.tianapi.com/>
+  - 免费接口数量：15个
+  - 每日赠送次数：100次
 
 ## 开发
 

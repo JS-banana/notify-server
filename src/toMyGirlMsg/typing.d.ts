@@ -13,6 +13,10 @@ export interface ItemplateProps {
   msgtype: string;
   textcard: ItextCardProps;
 }
+export interface ItemplateTextProps {
+  msgtype: string;
+  text: { content: string };
+}
 
 // 定义参数类型
 export interface IOptionsConfigProps {
@@ -73,6 +77,8 @@ export interface IVerseProps {
   author: string;
   /** 古诗文-天气-太阳 */
   category: string;
+  /** 天行数据接口 名称 */
+  source: string;
 }
 
 // 非天气的其他数据
@@ -95,9 +101,30 @@ export interface IInspirationalEnglishProps {
 
 export interface IConfigTextProps {
   /** 笑话 */
-  joke: string;
+  joke?: string;
   /** 一句一言 */
   oneWord: string;
   /** 励志英语 */
   inspirationalEnglish: IInspirationalEnglishProp | null;
+  /** 彩虹屁 */
+  rainbowFart: string;
+  one: string;
+  hotComment: string;
+}
+
+/**
+ * 以下是天行数据接口==========>
+ */
+
+// 最美英语
+export interface ResEnglishProps {
+  content: string;
+  note: string;
+  imgurl: string;
+  date: string;
+}
+
+export interface ResShockingJoke {
+  title: string;
+  content: string;
 }

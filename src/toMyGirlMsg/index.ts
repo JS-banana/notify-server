@@ -20,10 +20,14 @@ import { getWeather } from './getWeather';
 import { IOptionsConfigProps } from './typing';
 import { getLoveMsgByHan } from './getLoveMsg';
 import { wxNotify } from '../wxNotify';
-import WXbot from '../wxNotify/WXbot';
 import { config_template, config_text } from './configTemplate';
 import { getInspirationalEnglish, getVerse } from './getVerse';
-import { getJoke, getOneWord } from './getJoke';
+import { gteInspirationalWord, getRainbowFart } from './getJoke';
+import dotenv from 'dotenv';
+import { getHotComment, getOne } from './getOne';
+// 读取 .env环境变量
+dotenv.config();
+const { TIAN_API_KEY } = process.env;
 
 // 默认值
 const defaultOptions: IOptionsConfigProps = {
@@ -41,9 +45,9 @@ export async function toMyGirlMsg(options: IOptionsConfigProps = {}) {
     // 天气数据
     const localWeatherData = await getWeather('蚌埠');
     // 获取情话
-    const loveWord = await getLoveMsgByHan();
+    const loveWord = await getLoveMsgByHan(TIAN_API_KEY);
     // 获取古诗词
-    const verse = await getVerse();
+    const verse = await getVerse(TIAN_API_KEY);
     // 更新模板
     const templateArgs = {
       ...localWeatherData,
@@ -56,17 +60,27 @@ export async function toMyGirlMsg(options: IOptionsConfigProps = {}) {
     await wxNotify(template);
 
     // 2. 文本模式：笑话、段子、英语
-
+    const one = await getOne(TIAN_API_KEY);
+    // 网易云热评
+    const hotComment = await getHotComment(TIAN_API_KEY);
     // 获取笑话
-    const joke = await getJoke();
+    const rainbowFart = await getRainbowFart(TIAN_API_KEY);
     // 一句一言
-    const oneWord = await getOneWord();
+    const oneWord = await gteInspirationalWord(TIAN_API_KEY);
     // 今日英语
-    const inspirationalEnglish = await getInspirationalEnglish();
-    const text = config_text({ joke, oneWord, inspirationalEnglish });
+    const inspirationalEnglish = await getInspirationalEnglish(TIAN_API_KEY);
+    const text = config_text({
+      one,
+      hotComment,
+      rainbowFart,
+      oneWord,
+      inspirationalEnglish,
+    });
 
     // wxNotify(text);
-    WXbot(text);
+    // WXbot(text);
+    console.log(text);
+    await wxNotify(text);
   } catch (error) {
     console.log(error);
   }

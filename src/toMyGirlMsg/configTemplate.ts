@@ -7,11 +7,14 @@ import {
   ItemplateProps,
   IConfigTemplateProps,
   IConfigTextProps,
+  ItemplateTextProps,
 } from './typing';
 import dayjs from 'dayjs';
 import duration from 'dayjs/plugin/duration';
+import LocalizedFormat from 'dayjs/plugin/localizedFormat';
 
 dayjs.extend(duration);
+dayjs.extend(LocalizedFormat);
 
 // 模板内容配置
 // 微信通知 textcard类型的description内容限制512个字节
@@ -51,7 +54,7 @@ export const config_template = (
   // 添加诗句
   if (verse) {
     description += `
-<div>今日诗句：</div><div>${verse.author} | ${verse.origin}</div><div>${verse.content}</div>`;
+<div>今日诗句：</div><div>${verse.source}</div><div>${verse.content}</div>`;
   }
 
   // 添加情话
@@ -75,16 +78,29 @@ export const config_template = (
 
 // 文本类型
 
-export const config_text = (data: IConfigTextProps): string => {
-  const { joke, oneWord, inspirationalEnglish } = data;
+export const config_text = (data: IConfigTextProps): ItemplateTextProps => {
+  const { one, hotComment, rainbowFart, oneWord, inspirationalEnglish } = data;
 
   let text = '以下内容来自鱼崽小铃铛\n';
 
   // 添加笑话
-  if (joke) {
+  if (rainbowFart) {
+    //     text += `
+    // 彩虹屁：
     text += `
-今日笑话：
-${joke}\n`;
+${rainbowFart}\n`;
+  }
+
+  if (one) {
+    text += `
+ONE一个:
+${one}\n`;
+  }
+
+  if (hotComment) {
+    text += `
+网易云音乐热评:
+${hotComment}\n`;
   }
 
   // 添加一句一言
@@ -96,12 +112,22 @@ ${oneWord}\n`;
 
   // 添加励志英语
   if (inspirationalEnglish) {
-    const { day, month, zh, en } = inspirationalEnglish;
+    const { date, content, note, source } = inspirationalEnglish;
+    //     text += `
+    // 今日英语（${month} ${day} ${dayjs().get('year')}）：
+    // ${en}
+    // ${zh}\n`;
     text += `
-今日英语（${month} ${day} ${dayjs().get('year')}）：
-${en}
-${zh}\n`;
+今日英语（${dayjs(date).format('ll')}）:
+《${source}》
+${content}
+${note}`;
   }
 
-  return text;
+  return {
+    msgtype: 'text',
+    text: {
+      content: text,
+    },
+  };
 };

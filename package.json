@@ -12,6 +12,7 @@
   },
   "scripts": {
     "notify": "node ./dist/index.js",
+    "goodNight": "node ./dist/goodNight.js",
     "start": "tsdx watch",
     "build": "tsdx build",
     "test": "tsdx test",

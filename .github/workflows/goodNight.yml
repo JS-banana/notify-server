@@ -1,12 +1,12 @@
-name: Notify to weixin
+name: Good night
 on:
   workflow_dispatch:
     branches:
       - master
   schedule:
     # `分 时 天 月 周` 时按照标准时间 北京时间=标准时间+8 18表示北京时间早上2点
-    # 早上8点
-    - cron: '0 0 * * *'
+    # 晚上 11：20
+    - cron: '20 15 * * *'
 # on:
 #   push:
 #     branches:
@@ -37,9 +37,10 @@ jobs:
 
       # 运行脚本
       - name: 运行脚本
-        run: npm run notify
+        run: npm run goodNight
         env:
           WX_COMPANY_ID: ${{ secrets.WX_COMPANY_ID }}
           WX_APP_ID: ${{ secrets.WX_APP_ID }}
           WX_APP_SECRET: ${{ secrets.WX_APP_SECRET }}
           WX_BOT_KEY: ${{ secrets.WX_BOT_KEY }}
+          IS_GOOD_NIGHT: true

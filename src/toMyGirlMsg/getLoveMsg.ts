@@ -18,11 +18,22 @@ export async function getLoveMsg(): Promise<string> {
 }
 
 // 接口2
-const Han_URL = 'https://api.vvhan.com/api/love?type=json';
-export async function getLoveMsgByHan(): Promise<string> {
+// const Han_URL = 'https://api.vvhan.com/api/love?type=json';
+// export async function getLoveMsgByHan(): Promise<string> {
+//   try {
+//     const response = await axios(Han_URL);
+//     return response.data?.ishan;
+//   } catch (error) {
+//     return '快通知男朋友，你的土味情话断开连接了！';
+//   }
+// }
+
+// 天行数据接口：土味情话
+const Han_URL = 'http://api.tianapi.com/saylove/index?key=';
+export async function getLoveMsgByHan(key?: string): Promise<string> {
   try {
-    const response = await axios(Han_URL);
-    return response.data?.ishan;
+    const response = await axios(Han_URL + key);
+    return response.data?.newslist?.[0].content;
   } catch (error) {
     return '快通知男朋友，你的土味情话断开连接了！';
   }

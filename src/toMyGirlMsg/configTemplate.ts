@@ -43,9 +43,10 @@ export const config_template = (
   const { festival, lunar_festival, jieqi, lubarmonth, lunarday } = lunarInfo;
   const { source, author, content } = weatherVerse;
   // if(dayInfo)
+  const lunar_festival_info = lunar_festival ? `| ${lunar_festival}` : '';
 
   let description = `<div>${city} | ${today} | ${festival ||
-    ''}</div><div>农历 | ${lubarmonth}${lunarday} | ${lunar_festival} | ${jieqi}</div>
+    ''}</div><div>农历 | ${lubarmonth}${lunarday} ${lunar_festival_info} | ${jieqi}</div>
 <div>这是我们相识的第 ${dateLength} 天</div>
 <div>今日天气状况：</div><div>天气：${wea}</div><div>${win}：${win_speed_day}</div><div>温度：${tem2}℃ - ${tem1}℃</div><div>湿度：${humidity}</div><div>空气：${air_level} | ${air} </div><div></div>`;
 
@@ -62,7 +63,7 @@ export const config_template = (
   }
 
   description += `
-<div>❤️🧡💛💚💙💜💗❤️</div>`;
+<div>❤️ 🧡 💛 💚 💙 💜 💗 </div>`;
 
   return {
     msgtype: 'textcard',

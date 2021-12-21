@@ -54,6 +54,7 @@ While there is life, there is hope.
 WX_COMPANY_ID= 公司ID
 WX_APP_ID= 应用ID
 WX_APP_SECRET= 应用 Secret
+TIAN_API_KEY= 天行数据 key
 ```
 
 1. 获取token

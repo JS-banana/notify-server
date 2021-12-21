@@ -31,9 +31,8 @@ jobs:
         env:
           CI: true
 
-      # prepare 钩子会在安装完成后自动 build
-      # - name: Build
-      #   run: npm run build
+      - name: Build
+        run: npm run build
 
       # 运行脚本
       - name: 运行脚本

@@ -12,12 +12,11 @@
   },
   "scripts": {
     "notify": "node ./dist/index.js",
-    "goodNight": "node ./dist/goodNight.js",
+    "goodNight": "node ./dist/night.js",
     "start": "tsdx watch",
     "build": "tsdx build",
     "test": "tsdx test",
     "lint": "tsdx lint",
-    "prepare": "tsdx build",
     "size": "size-limit",
     "analyze": "size-limit --why"
   },

@@ -16,7 +16,7 @@
  * <情话>
  */
 
-import { getWeather } from './getWeather';
+import { getVerseByWeather, getWeather } from './getWeather';
 import { IOptionsConfigProps } from './typing';
 import { getLoveMsgByHan } from './getLoveMsg';
 import { wxNotify } from '../wxNotify';
@@ -25,6 +25,7 @@ import { getInspirationalEnglish, getVerse } from './getVerse';
 import { gteInspirationalWord, getRainbowFart } from './getJoke';
 import dotenv from 'dotenv';
 import { getHotComment, getOne } from './getOne';
+import { getLunarDate } from './getLunarDate';
 // 读取 .env环境变量
 dotenv.config();
 const { TIAN_API_KEY } = process.env;
@@ -44,15 +45,18 @@ export async function toMyGirlMsg(options: IOptionsConfigProps = {}) {
 
     // 天气数据
     const localWeatherData = await getWeather('蚌埠');
-    // 获取情话
-    const loveWord = await getLoveMsgByHan(TIAN_API_KEY);
-    // 获取古诗词
-    const verse = await getVerse(TIAN_API_KEY);
+    // 农历
+    const lunarInfo = await getLunarDate(TIAN_API_KEY, localWeatherData.date);
+    // 根据天气获取诗句
+    const weatherVerse = await getVerseByWeather(
+      TIAN_API_KEY,
+      localWeatherData.wea
+    );
     // 更新模板
     const templateArgs = {
       ...localWeatherData,
-      loveWord,
-      verse,
+      lunarInfo,
+      weatherVerse,
     };
 
     const template = config_template(templateArgs, mergeOptions);
@@ -60,6 +64,11 @@ export async function toMyGirlMsg(options: IOptionsConfigProps = {}) {
     await wxNotify(template);
 
     // 2. 文本模式：笑话、段子、英语
+    // 获取情话
+    const loveWord = await getLoveMsgByHan(TIAN_API_KEY);
+    // 获取古诗词
+    const verse = await getVerse(TIAN_API_KEY);
+    // one
     const one = await getOne(TIAN_API_KEY);
     // 网易云热评
     const hotComment = await getHotComment(TIAN_API_KEY);
@@ -74,6 +83,8 @@ export async function toMyGirlMsg(options: IOptionsConfigProps = {}) {
       hotComment,
       rainbowFart,
       oneWord,
+      verse,
+      loveWord,
       inspirationalEnglish,
     });
 

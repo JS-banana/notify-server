@@ -87,6 +87,8 @@ export interface IOtherProps {
   verse: IVerseProps;
   /** 情话 */
   loveWord: string;
+  lunarInfo: ResLunarDate;
+  weatherVerse: ResWeatherVerse;
 }
 
 export type IConfigTemplateProps = IWeatherResponseProps & IOtherProps;
@@ -110,6 +112,8 @@ export interface IConfigTextProps {
   rainbowFart: string;
   one: string;
   hotComment: string;
+  verse: IVerseProps | null;
+  loveWord: string;
 }
 
 /**
@@ -126,5 +130,21 @@ export interface ResEnglishProps {
 
 export interface ResShockingJoke {
   title: string;
+  content: string;
+}
+
+// 农历
+export interface ResLunarDate {
+  lunar_festival: string;
+  festival: string;
+  lubarmonth: string;
+  lunarday: string;
+  jieqi: string;
+}
+
+interface ResWeatherVerse {
+  tqtype: number;
+  source: string;
+  author: string;
   content: string;
 }

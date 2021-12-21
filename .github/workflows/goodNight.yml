@@ -36,10 +36,11 @@ jobs:
 
       # 运行脚本
       - name: 运行脚本
-        run: npm run goodNight
+        run: npm run notify
         env:
           WX_COMPANY_ID: ${{ secrets.WX_COMPANY_ID }}
           WX_APP_ID: ${{ secrets.WX_APP_ID }}
           WX_APP_SECRET: ${{ secrets.WX_APP_SECRET }}
           WX_BOT_KEY: ${{ secrets.WX_BOT_KEY }}
           TIAN_API_KEY: ${{ secrets.TIAN_API_KEY }}
+          IS_GOOD_NIGHT: night # 用于区分 早/晚 脚本

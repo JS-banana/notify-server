@@ -43,3 +43,41 @@ export async function getWeather(city_name: '杭州' | '蚌埠'): Promise<any> {
     console.log('[getWeather]天气请求失败==>', error);
   }
 }
+
+// 根据天气获取 天气诗句
+
+const WeatherType: { [key: string]: number } = {
+  风: 1,
+  云: 2,
+  雨: 3,
+  雪: 4,
+  霜: 5,
+  露: 6,
+  雾: 7,
+  雷: 8,
+  晴: 9,
+  阴: 10,
+};
+const Type_URL = 'http://api.tianapi.com/tianqishiju/index?key=';
+export async function getVerseByWeather(key?: string, weather?: string) {
+  let type = 1;
+
+  if (weather) {
+    if (WeatherType[weather]) {
+      type = WeatherType[weather];
+    } else {
+      const current = Object.keys(WeatherType).find(
+        n => weather.indexOf(n) > -1
+      );
+      type = current ? WeatherType[current] : 1;
+    }
+  }
+
+  //
+  try {
+    const response = await axios(Type_URL + key + `&tqtype=${type}`);
+    return response.data.newslist?.[0];
+  } catch (error) {
+    console.log('[getVerseByWeather]天气请求失败==>', error);
+  }
+}

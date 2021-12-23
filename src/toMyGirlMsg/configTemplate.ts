@@ -49,12 +49,12 @@ export const config_template = (
 
   let description = `<div>${city} | ${today} ${festival_info}</div><div>农历 | ${lubarmonth}${lunarday} ${lunar_festival_info} ${jieqi_info}</div>
 <div>这是我们相识的第 ${dateLength} 天</div>
-<div>今日天气状况：</div><div>天气：${wea}</div><div>${win}：${win_speed_day}</div><div>温度：${tem2}℃ - ${tem1}℃</div><div>湿度：${humidity}</div><div>空气：${air_level} | ${air} </div><div></div>`;
+<div>今日天气状况：</div><div>天气：${wea}</div><div>${win}：${win_speed_day}</div><div>温度：${tem2}℃ - ${tem1}℃</div><div>湿度：${humidity}</div><div>空气：${air_level} | ${air} </div>`;
 
   // 添加预警天气
   if (alarm) {
     description += `
-<div>有预警信息哦：</div><div>${alarm.alarm_type} | ${alarm.alarm_level}</div>`;
+<div>有预警信息哦：</div><div>${alarm.alarm_type} | ${alarm.alarm_level}预警</div>`;
   }
 
   // 添加天气相关诗句
@@ -64,7 +64,8 @@ export const config_template = (
   }
 
   description += `
-<div>❤️ 🧡 💛 💚 💙 💜 💗 </div>`;
+
+❤️ 🧡 💛 💚 💖`;
 
   return {
     msgtype: 'textcard',
@@ -93,6 +94,9 @@ export const config_text = (data: IConfigTextProps): ItemplateTextProps => {
   } = data;
 
   let text = '以下内容来自鱼崽小铃铛\n';
+
+  text += `
+早安呀，可爱的鱼崽崽😊`;
 
   // 添加笑话
   if (rainbowFart) {

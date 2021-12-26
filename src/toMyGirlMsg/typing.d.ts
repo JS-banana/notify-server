@@ -114,6 +114,7 @@ export interface IConfigTextProps {
   hotComment: string;
   verse: IVerseProps | null;
   loveWord: string;
+  week: string;
 }
 
 /**

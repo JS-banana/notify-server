@@ -66,7 +66,7 @@ export const config_template = (
   if (+tem1 <= 0) {
     description += `
 <div>哈喽哈喽~这里是来自崽崽的爱心提醒哦：</div>
-<div>今日最高温度仅为<b>${tem1}℃</b>❇，可冷可冷了~鱼崽崽可要注意保暖哦~</div>`;
+<div>今日最高温度仅为🥶 ${tem1}℃，可冷可冷了~鱼崽崽可要注意保暖哦~</div>`;
   }
 
   // 添加天气相关诗句
@@ -105,14 +105,22 @@ export const config_text = (data: IConfigTextProps): ItemplateTextProps => {
     rainbowFart,
     oneWord,
     inspirationalEnglish,
+    week,
   } = data;
 
   // let text = '以下内容来自鱼崽小铃铛\n';
   let text = '早安呀，可爱的鱼崽崽😘\n';
 
-  text += `
-  如果我鱼崽崽已经起床啦！崽崽向你说早安呦~，记得吃早饭呀~😆
-  如果我鱼崽崽还没起床呀！崽崽就等着鱼崽起床给我说早安呦~🤣，哼~就让你再睡会懒觉~下次可不能啦~😝\n`;
+  // 工作日/休息日，需要排除节假日
+  if (['星期六', '星期日'].includes(week)) {
+    text += `
+如果我鱼崽崽已经起床啦！崽崽向你说早安呦~，记得吃早饭呀😆\n
+嗯哼哼~今天可是${week}哦，别迟到了哦~`;
+  } else {
+    text += `
+如果我鱼崽崽还没起床呀！崽崽就等着鱼崽起床给我说早安呦🤣
+哼~，今天是${week}，就让你再睡会懒觉~下次可不能啦~😝\n`;
+  }
 
   // 添加笑话
   if (rainbowFart) {

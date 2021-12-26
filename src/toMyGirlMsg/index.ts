@@ -86,6 +86,7 @@ export async function toMyGirlMsg(options: IOptionsConfigProps = {}) {
       verse,
       loveWord,
       inspirationalEnglish,
+      week: localWeatherData.week,
     });
 
     // wxNotify(text);

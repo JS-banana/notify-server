@@ -34,8 +34,7 @@
     "prepublishOnly": "nr build",
     "release": "bumpp --commit --push --tag && pnpm publish",
     "start": "esno src/index.ts",
-    "test": "vitest",
-    "postinstall": "husky install"
+    "test": "vitest"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.14.0",

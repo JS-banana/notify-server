@@ -13,5 +13,3 @@ yarn-error.log
 **/node_modules/**
 .npmrc
 DS_Store
-
-src/utils/calendar.ts

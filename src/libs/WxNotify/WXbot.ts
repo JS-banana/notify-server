@@ -23,8 +23,8 @@ export default async function WXbot(msg: string) {
         msgtype: 'text',
         text: {
           content: msg,
-          // mentioned_list: ['@all'],
-          mentioned_mobile_list: ['@all'], // 通知所以人
+          mentioned_list: ['@all'],
+          // mentioned_mobile_list: ['@all'], // 通知所以人
         },
       },
     });

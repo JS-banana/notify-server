@@ -2,7 +2,14 @@
   "name": "notify-server",
   "version": "0.0.1",
   "description": "使用TypeScript运行和开发的nodejs技术栈的微信消息通知项目",
-  "keywords": ["女朋友","微信","微信通知","土味情话","天气","早安"],
+  "keywords": [
+    "女朋友",
+    "微信",
+    "微信通知",
+    "土味情话",
+    "天气",
+    "早安"
+  ],
   "homepage": "https://github.com/JS-banana/node-ts#readme",
   "bugs": {
     "url": "https://github.com/JS-banana/node-ts/issues"
@@ -42,7 +49,10 @@
     "@types/node": "^17.0.0",
     "bumpp": "^7.1.1",
     "eslint": "^8.5.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
     "esno": "^0.13.0",
+    "prettier": "^2.5.1",
     "typescript": "^4.5.4",
     "unbuild": "^0.6.7",
     "vite": "^2.7.3",

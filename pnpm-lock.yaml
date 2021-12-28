@@ -12,7 +12,10 @@ importers:
       dayjs: ^1.10.7
       dotenv: ^10.0.0
       eslint: ^8.5.0
+      eslint-config-prettier: ^8.3.0
+      eslint-plugin-prettier: ^4.0.0
       esno: ^0.13.0
+      prettier: ^2.5.1
       typescript: ^4.5.4
       unbuild: ^0.6.7
       vite: ^2.7.3
@@ -27,7 +30,10 @@ importers:
       '@types/node': 17.0.0
       bumpp: 7.1.1
       eslint: 8.5.0
+      eslint-config-prettier: registry.npmmirror.com/eslint-config-prettier/8.3.0_eslint@8.5.0
+      eslint-plugin-prettier: registry.npmmirror.com/eslint-plugin-prettier/4.0.0_94e1b6d3ce6ea916847122712570e9ae
       esno: 0.13.0_typescript@4.5.4
+      prettier: registry.npmmirror.com/prettier/2.5.1
       typescript: 4.5.4
       unbuild: 0.6.7
       vite: 2.7.3
@@ -1476,6 +1482,10 @@ packages:
     resolution: {integrity: sha512-f3qQ9oQy9j2AhBe/H9VC91wLmKBCCU/gDOnKNAYG5hswO7BLKj09Hc5HYNz9cGI++xlpDCIgDaitVs03ATR84Q==}
     dev: true
 
+  /fast-diff/1.2.0:
+    resolution: {integrity: sha1-c+4RmC2Gyq95WYKNUZz+kn+sXwM=, tarball: fast-diff/download/fast-diff-1.2.0.tgz}
+    dev: true
+
   /fast-glob/3.2.5:
     resolution: {integrity: sha512-2DtFcgT68wiTTiwZ2hNdJfcHNke9XOfnwmBRWXhmeKM8rF0TGwmC/Qto3S7RoZKp5cilZbxzO5iTNTQsJ+EeDg==}
     engines: {node: '>=8'}
@@ -2333,6 +2343,13 @@ packages:
   /prelude-ls/1.2.1:
     resolution: {integrity: sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g==}
     engines: {node: '>= 0.8.0'}
+    dev: true
+
+  /prettier-linter-helpers/1.0.0:
+    resolution: {integrity: sha1-0j1B/hN1ZG3i0BBNNFSjAIgCz3s=, tarball: prettier-linter-helpers/download/prettier-linter-helpers-1.0.0.tgz}
+    engines: {node: '>=6.0.0'}
+    dependencies:
+      fast-diff: 1.2.0
     dev: true
 
   /pretty-bytes/5.6.0:
@@ -3285,6 +3302,38 @@ packages:
     dev: true
     optional: true
 
+  registry.npmmirror.com/eslint-config-prettier/8.3.0_eslint@8.5.0:
+    resolution: {integrity: sha1-90cbILb+ipqSVMxoRFQgKIai3Xo=, registry: https://registry.nlark.com/, tarball: https://registry.npmmirror.com/eslint-config-prettier/download/eslint-config-prettier-8.3.0.tgz?cache=0&sync_timestamp=1633007536294&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Feslint-config-prettier%2Fdownload%2Feslint-config-prettier-8.3.0.tgz}
+    id: registry.npmmirror.com/eslint-config-prettier/8.3.0
+    name: eslint-config-prettier
+    version: 8.3.0
+    hasBin: true
+    peerDependencies:
+      eslint: '>=7.0.0'
+    dependencies:
+      eslint: 8.5.0
+    dev: true
+
+  registry.npmmirror.com/eslint-plugin-prettier/4.0.0_94e1b6d3ce6ea916847122712570e9ae:
+    resolution: {integrity: sha1-i5nR5LiySnYkcrRWeZICNhnLmOA=, registry: https://registry.nlark.com/, tarball: https://registry.npmmirror.com/eslint-plugin-prettier/download/eslint-plugin-prettier-4.0.0.tgz}
+    id: registry.npmmirror.com/eslint-plugin-prettier/4.0.0
+    name: eslint-plugin-prettier
+    version: 4.0.0
+    engines: {node: '>=6.0.0'}
+    peerDependencies:
+      eslint: '>=7.28.0'
+      eslint-config-prettier: '*'
+      prettier: '>=2.0.0'
+    peerDependenciesMeta:
+      eslint-config-prettier:
+        optional: true
+    dependencies:
+      eslint: 8.5.0
+      eslint-config-prettier: registry.npmmirror.com/eslint-config-prettier/8.3.0_eslint@8.5.0
+      prettier: registry.npmmirror.com/prettier/2.5.1
+      prettier-linter-helpers: 1.0.0
+    dev: true
+
   registry.npmmirror.com/find-up/2.1.0:
     resolution: {integrity: sha1-RdG35QbHF93UgndaK3eSCjwMV6c=, registry: https://registry.nlark.com/, tarball: https://registry.npmmirror.com/find-up/download/find-up-2.1.0.tgz?cache=0&sync_timestamp=1633619164881&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Ffind-up%2Fdownload%2Ffind-up-2.1.0.tgz}
     name: find-up
@@ -3333,6 +3382,14 @@ packages:
     resolution: {integrity: sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==, registry: https://registry.nlark.com/, tarball: https://registry.npmmirror.com/lodash/download/lodash-4.17.21.tgz}
     name: lodash
     version: 4.17.21
+    dev: true
+
+  registry.npmmirror.com/prettier/2.5.1:
+    resolution: {integrity: sha512-vBZcPRUR5MZJwoyi3ZoyQlc1rXeEck8KgeC9AwwOn+exuxLxq5toTRDTSaVrXHxelDMHy9zlicw8u66yxoSUFg==, registry: https://registry.nlark.com/, tarball: https://registry.npmmirror.com/prettier/download/prettier-2.5.1.tgz}
+    name: prettier
+    version: 2.5.1
+    engines: {node: '>=10.13.0'}
+    hasBin: true
     dev: true
 
   registry.npmmirror.com/spdx-license-ids/3.0.7:

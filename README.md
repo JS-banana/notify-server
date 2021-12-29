@@ -4,12 +4,22 @@
 [![ci](https://github.com/JS-banana/notify-server/actions/workflows/goodAfternoon.yml/badge.svg)](https://github.com/JS-banana/notify-server/actions/workflows/goodAfternoon.yml)
 [![ci](https://github.com/JS-banana/notify-server/actions/workflows/goodEvening.yml/badge.svg)](https://github.com/JS-banana/notify-server/actions/workflows/goodEvening.yml)
 
-微信通知，每天给女朋友发情话、天气、诗句
+微信通知，每天给女朋友发早安、午安、晚安，和情话与诗句等等
 
 ## 功能
 
 - [x] WXWorkNotify：自定义应用通知
 - [x] WXbot：群机器人通知
+- [x] 天行数据提供的接口能力，包括但不限天气、新闻、知识等
+
+## 开发计划
+
+数据获取不仅仅依赖于开放接口API，本应用运行于NodeJS环境，一切可行的手段都可以实现，如：爬虫、RSS订阅源、自开发脚本等
+
+接下来探索更多数据获取的可能性，如有需要可考虑结合云服务和数据库
+
+- [ ] [Everything is RSSible](https://docs.rsshub.app/)
+- [ ] 爬虫、数据分析
 
 ## 效果
 
@@ -40,12 +50,12 @@ While there is life, there is hope.
 
 ### 接口数据提供者
 
-免费开源接口需要考虑服务稳定性！
+免费开源接口需要考虑服务**稳定性**！
 
-目前接口数据能力主要由天行数据提供，为了稳定性
+目前接口数据能力主要由天行数据提供，随便注册一个账户会员即可，无门槛
 
 - 天行数据：<https://www.tianapi.com/>
-  - 免费接口数量：15个
+  - 会员免费接口数量：15个
   - 每日赠送次数：100次
 
 ## 企业微信自定义应用消息通知

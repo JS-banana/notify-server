@@ -1,18 +1,13 @@
 # 消息通知
 
+[![ci](https://github.com/JS-banana/notify-server/actions/workflows/goodMorning.yml/badge.svg)](https://github.com/JS-banana/notify-server/actions/workflows/goodMorning.yml)[![ci](https://github.com/JS-banana/notify-server/actions/workflows/goodAfternoon.yml/badge.svg)](https://github.com/JS-banana/notify-server/actions/workflows/goodAfternoon.yml)[![ci](https://github.com/JS-banana/notify-server/actions/workflows/goodEvening.yml/badge.svg)](https://github.com/JS-banana/notify-server/actions/workflows/goodEvening.yml)
+
 微信通知，每天给女朋友发情话、天气、诗句
 
 ## 功能
 
 - [x] WXWorkNotify：自定义应用通知
 - [x] WXbot：群机器人通知
-
-下一步计划
-
-- [ ] 功能梳理和拆分，更好的维护管理
-- [ ] 接口能力探索，目前结合免费能力和小成本付费解决大多数场景
-
-> 目前接口数据能力主要由天行数据提供，为了稳定性
 
 ## 效果
 
@@ -45,8 +40,8 @@ While there is life, there is hope.
 
 免费开源接口需要考虑服务稳定性！
 
-- <https://lovelive.tools/>
-- <https://api.vvhan.com/> （稳定性待确定）
+目前接口数据能力主要由天行数据提供，为了稳定性
+
 - 天行数据：<https://www.tianapi.com/>
   - 免费接口数量：15个
   - 每日赠送次数：100次

@@ -31,7 +31,8 @@ export async function wxNotify(config: any) {
     const res = await postMsg(accessToken, option)
     console.log('wx:信息发送成功！', res)
     return true
-  } catch (error) {
+  }
+  catch (error) {
     console.log('wx:信息发送失败！', error)
     return false
   }

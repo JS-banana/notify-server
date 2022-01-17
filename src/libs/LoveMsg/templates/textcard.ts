@@ -34,7 +34,7 @@ export const textCardTemplate = (data: TextCardTemplateProps) => {
   } = data
 
   // 今日、恋爱天数
-  const today = date.replace('-', '年').replace('-', '月') + '日'
+  const today = `${date.replace('-', '年').replace('-', '月')}日`
   const dateLength = dayjs(date).diff(start_stamp, 'day')
 
   // 公历节日、农历节日和二十四节气

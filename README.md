@@ -124,4 +124,4 @@ schedule:
 
 ## 感谢
 
-灵感来自：[juejin-auto-checkin](https://github.com/JS-banana/juejin-auto-checkin)
+灵感来自：[juejin-auto-checkin](https://github.com/KaiOrange/juejin-auto-checkin)

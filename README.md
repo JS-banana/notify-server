@@ -1,6 +1,6 @@
 <h1 align="center">微信消息通知</h1>
 
-<p align="center"><img src="./weixin.jpg" alt="weixin"></p>
+<p align="center"><img width="340" src="./weixin.jpg" alt="weixin"></p>
 
 <p align="center">
   <a href="https://github.com/JS-banana/notify-server">

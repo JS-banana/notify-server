@@ -1,5 +1,6 @@
 /**
- *
+ * @name loveMsg
+ * @description 入口
  */
 import dotenv from 'dotenv'
 import { goodMorning } from './goodMorning'

@@ -1,6 +1,6 @@
 /**
  * @name goodEvening
- * @description 说早安
+ * @description 说晚安
  */
 import API from '../../api/loveMsg'
 import { wxNotify } from '../WxNotify'

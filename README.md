@@ -1,5 +1,7 @@
 <h1 align="center">微信消息通知</h1>
 
+<p align="center"><img src="./weixin.jpg" alt="weixin"></p>
+
 <p align="center">
   <a href="https://github.com/JS-banana/notify-server">
     <img src="https://visitor-badge.glitch.me/badge?page_id=js-banana.notify-server" alt="notify-server">
@@ -25,7 +27,7 @@
 
 ## 已添加功能
 
-- 每天给女友发早安和土味情话
+- [x] 每天给女友发早安和土味情话
   - 个人定制化信息
   - 天气信息
   - 每日一言
@@ -94,7 +96,7 @@ TIAN_API_KEY= 天行数据 key
 
 ![secrets](secrets.png)
 
-GitHub Action每天7:30自动执行，脚本配置如下：
+GitHub Action每天7:30自动执行，脚本配置如下：[ci.yml](https://github.com/JS-banana/notify-server/blob/master/.github/workflows/goodMorning.yml)
 
 ```yml
 schedule:

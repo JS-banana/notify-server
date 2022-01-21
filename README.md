@@ -77,6 +77,8 @@ While there is life, there is hope.
 
 ## 开发
 
+钉钉、飞书、企业微信的使用方式见该仓库 [juejin-auto-checkin](#感谢)
+
 需要的变量
 
 ```txt
@@ -119,3 +121,7 @@ schedule:
 - 每日赠送次数：**100次**
 
 注：如果采取该接口，需要在 **5.添加环境变量**这一步中，再添加Key的变量，作为天行数据接口使用时的必填参数
+
+## 感谢
+
+灵感来自：[juejin-auto-checkin](https://github.com/JS-banana/juejin-auto-checkin)

@@ -129,6 +129,10 @@ schedule:
 
 注：如果采取该接口，需要在 **5.添加环境变量**这一步中，再添加Key的变量，作为天行数据接口使用时的必填参数
 
+## 交流
+
+欢迎大家一起交流和分享自己的创意和玩法
+
 ## 感谢
 
 灵感来自：[juejin-auto-checkin](https://github.com/KaiOrange/juejin-auto-checkin)

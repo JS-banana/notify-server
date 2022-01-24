@@ -79,7 +79,11 @@
 
 ## 开发
 
-需要的变量
+### 环境
+
+nodejs版本推荐优先使用14.x及以上
+
+### 需要的变量
 
 ```txt
 WX_COMPANY_ID= 企业ID
@@ -97,11 +101,41 @@ TIAN_API_KEY= 天行数据 key
 
 ### 本地开发
 
-复制 `.env.example`文件重命名为 `.env`，并按照要求填写对应值，可以直接测试
+1. 可以直接fork本项目 => 克隆至本地
+2. 复制 `.env.example`文件重命名为 `.env`，并按照要求填写对应变量值
+3. 安装依赖
+
+   ```bash
+   # 推荐使用pnpm（如果未安装，可先全局安装`npm install -g pnpm`）
+   pnpm install
+   # or
+   npm install
+   ```
+
+4. 执行脚本
+
+   ```bash
+   # 推荐使用这种方式
+   pnpm start
+   # or
+   npm start
+   ```
+
+   或者
+
+   ```bash
+   # 先build构建再执行脚本
+   # 1. build构建生成js文件
+   pnpm build
+   # 2. node执行js文件
+   node dist/index.js
+   ```
+
+> 注：本项目不作为包发布，因此暂不考虑build构建，直接通过脚本运行即可，github服务已配置有缓存，无需担心安装性能问题
 
 ### GitHub部署
 
-如果要通过 `GitHub Action`使用，需要在 `Secrets` 中一一添加变量
+如果要通过 `GitHub Action`使用，需要在 `Secrets` 中一一添加变量,脚本会自动运行，当然，你也可以根据自身需求调整，见 `.github/workflows/goodMorning.yml`
 
 ![secrets](secrets.png)
 

@@ -18,7 +18,6 @@
 </p>
 
 <p align="center">微信通知，每天给女朋友发早安、情话、诗句、天气信息等</p>
-
 <p align="center">微信通知能力的核心链路已完成，就消息内容而言不限，基于此，可以根据个人需求完成各种私人定制</p>
 
 <!-- [![ci](https://github.com/JS-banana/notify-server/actions/workflows/goodMorning.yml/badge.svg)](https://github.com/JS-banana/notify-server/actions/workflows/goodMorning.yml) -->
@@ -165,7 +164,7 @@ schedule:
 
 ## 交流
 
-欢迎大家一起交流和分享自己的创意和玩法
+欢迎大家一起交流和分享自己的创意和玩法[discussions](https://github.com/JS-banana/notify-server/discussions)
 
 ## 感谢
 

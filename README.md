@@ -75,12 +75,9 @@
 计划：
 
 - [ ] 每周豆瓣热映电影
-- [ ] 每周GitHub Trending
-- [ ] weekly周刊更新通知
+- [ ] 随机照片
 
 ## 开发
-
-钉钉、飞书、企业微信的使用方式见该仓库 [juejin-auto-checkin](#感谢)
 
 需要的变量
 
@@ -91,11 +88,18 @@ WX_APP_SECRET= 应用 Secret
 TIAN_API_KEY= 天行数据 key
 ```
 
+1. 注册企业微信 => 注册内部应用 => 获取到企业ID/应用ID/应用Secret
+2. 注册[天行数据](#数据赋能API)会员 => 申请需要使用的接口 => 获取到接口API和KEY
+
+> 企业微信的注册步骤见该仓库 [juejin-auto-checkin](#感谢)
+>
+> 本项目目前已使用到的天行数据接口见 [src/api/loveMsg](https://github.com/JS-banana/notify-server/src/api/loveMsg.ts)
+
 ### 本地开发
 
 复制 `.env.example`文件重命名为 `.env`，并按照要求填写对应值，可以直接测试
 
-### 部署
+### GitHub部署
 
 如果要通过 `GitHub Action`使用，需要在 `Secrets` 中一一添加变量
 

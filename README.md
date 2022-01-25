@@ -44,26 +44,7 @@
 
 <p align="center"><img width="500" src="/images/preview-1.jpg" alt="preview-1"></p>
 
-<details>
-<summary>其他信息</summary>
-
 <p align="center"><img width="500" src="/images/preview-2.jpg" alt="preview-2"></p>
-
-```txt
-我的心里原本荒芜寸草不生，后来你来这走了一遭，奇迹般万物生长。
-
-以心事下酒易大醉，大醉后易吐心事，心事全是你。
-
-『岳飞《小重山》』欲将心事付瑶琴。知音少，弦断有谁听。
-
-『ONE杂志』我觉得，人就像一粒种子。要做一粒好种子，身体、精神、情感都要健康。种子健康了，我们每个人的事业才能根深叶茂，枝粗果硕。
-
-『网易云音乐热评』金钱的奴隶 欲望的游戏 打不破的桎梏 解不开的枷锁——奴隶
-
-『一言』相思只在：丁香枝上，豆蔻梢头。
-
-『每日英语（Jan 20, 2022』If I was going somewhere, I was running.
-```
 
 </details>
 

@@ -219,9 +219,9 @@ TIANQI_APPSECRET=天气APP Secret
 - [ ] 每周豆瓣热映电影
 - [ ] 随机照片
 
-## 交流
+<!-- ## 交流
 
-欢迎大家一起交流和分享自己的创意和玩法[discussions](https://github.com/JS-banana/notify-server/discussions)
+欢迎大家一起交流和分享自己的创意和玩法[discussions](https://github.com/JS-banana/notify-server/discussions) -->
 
 <!-- ## 感谢
 

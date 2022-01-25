@@ -1,6 +1,7 @@
 {
-  "extends": ["prettier","@antfu"],
+  "extends": ["prettier", "@antfu"],
   "rules": {
-    "no-console": "warn"
+    "no-console": "warn",
+    "brace-style": "warn"
   }
 }

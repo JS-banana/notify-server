@@ -38,11 +38,16 @@
 
 ## 效果
 
-天气信息
+<!-- ![wx_love-1](https://cdn.jsdelivr.net/gh/JS-banana/images/vuepress/wx_love-1.png) -->
 
-![wx_love-1](https://cdn.jsdelivr.net/gh/JS-banana/images/vuepress/wx_love-1.png)
+![weixin](images/weixin.jpg)
 
-其他信息
+![preview-1](images/preview-1.jpg)
+
+<details>
+<summary>其他信息</summary>
+
+![preview-2](images/preview-2.jpg)
 
 ```txt
 我的心里原本荒芜寸草不生，后来你来这走了一遭，奇迹般万物生长。
@@ -59,6 +64,8 @@
 
 『每日英语（Jan 20, 2022』If I was going somewhere, I was running.
 ```
+
+</details>
 
 ## 开发计划
 
@@ -112,7 +119,7 @@ TIAN_API_KEY= 天行数据 key
 
 ![创建应用-2](images/qiyewx-3.png)
 
-指定范围
+指定成员或组织
 
 ![指定范围](images/qiyewx-3-2.png)
 
@@ -123,6 +130,8 @@ TIAN_API_KEY= 天行数据 key
 #### 第三步，获取企业 ID
 
 进入「[我的企业](https://work.weixin.qq.com/wework_admin/frame#profile)」页面，拉到最下边，可以得到企业 ID③。
+
+![企业ID](images/qiyewx-6.png)
 
 #### 第四步，推送消息到微信
 
@@ -136,11 +145,11 @@ PS：如果出现`接口请求正常，企业微信接受消息正常，个人�
 
 1. 进入「我的企业」 → 「微信插件」，拉到最下方，勾选 “允许成员在微信插件中接收和回复聊天消息”
 
-  ![异常情况-1](images/qiyewx-5.jpg)
+    ![异常情况-1](images/qiyewx-5.jpg)
 
 2. 在企业微信客户端 「我」 → 「设置」 → 「新消息通知」中关闭 “仅在企业微信中接受消息” 限制条件
 
-  ![异常情况-2](images/qiyewx-5-1.jpg)
+    ![异常情况-2](images/qiyewx-5-1.jpg)
 
 ### 本地开发
 

@@ -44,8 +44,6 @@
 
 <p align="center"><img width="500" src="/images/preview-1.jpg" alt="preview-1"></p>
 
-<p align="center"><img width="500" src="/images/preview-2.jpg" alt="preview-2"></p>
-
 ## 开发
 
 ### 环境

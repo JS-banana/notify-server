@@ -40,14 +40,14 @@
 
 <!-- ![wx_love-1](https://cdn.jsdelivr.net/gh/JS-banana/images/vuepress/wx_love-1.png) -->
 
-![weixin](images/weixin.jpg)
+<p align="center"><img width="500" src="/images/weixin.jpg" alt="weixin"></p>
 
-![preview-1](images/preview-1.jpg)
+<p align="center"><img width="500" src="/images/preview-1.jpg" alt="preview-1"></p>
 
 <details>
 <summary>其他信息</summary>
 
-![preview-2](images/preview-2.jpg)
+<p align="center"><img width="500" src="/images/preview-2.jpg" alt="preview-2"></p>
 
 ```txt
 我的心里原本荒芜寸草不生，后来你来这走了一遭，奇迹般万物生长。

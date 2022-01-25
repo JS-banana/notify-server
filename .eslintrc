@@ -2,6 +2,9 @@
   "extends": ["prettier", "@antfu"],
   "rules": {
     "no-console": "warn",
-    "brace-style": "warn"
+    "brace-style": "warn",
+    "space-before-function-paren": "warn",
+    "arrow-parens": "warn",
+    "operator-linebreak": "warn"
   }
 }

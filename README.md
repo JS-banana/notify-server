@@ -232,7 +232,7 @@ schedule:
 
 计划：
 
-- [ ] 天气接口重构
+- [x] 天气接口重构
 - [ ] 每周豆瓣热映电影
 - [ ] 随机照片
 
@@ -243,3 +243,8 @@ schedule:
 <!-- ## 感谢
 
 灵感来自：[juejin-auto-checkin](https://github.com/KaiOrange/juejin-auto-checkin) -->
+
+## 更新记录
+
+- 2022-01-25：README文档更新、添加图示，免费天气接口稳定性及功能标注
+- 2022-01-26：天气接口调整、功能调整

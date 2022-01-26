@@ -61,6 +61,8 @@
   "dependencies": {
     "axios": "^0.24.0",
     "dayjs": "^1.10.7",
-    "dotenv": "^10.0.0"
+    "dotenv": "^10.0.0",
+    "rss-parser": "^3.12.0",
+    "rsshub": "^1.0.0-master.bdb0e12"
   }
 }

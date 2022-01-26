@@ -1,16 +1,12 @@
 import axios from 'axios'
 import { getTian } from '../utils/http'
 
-const { TIANQI_APPID, TIANQI_APPSECRET } = process.env
-
 /**
  * 给女朋友发送内容的相关接口
  */
-
-// 天气
-const WEATHER_API = `https://v0.yiketianqi.com/api?unescape=1&version=v61&appid=${TIANQI_APPID}&appsecret=${TIANQI_APPSECRET}`
-
 enum LoveMsgURL {
+  // 天气接口：默认获取最近7天的数据
+  weather = 'http://api.tianapi.com/tianqi/index',
   // 每日简报
   dailyBriefing = 'http://api.tianapi.com/bulletin/index',
   // 今日头条
@@ -54,22 +50,10 @@ class API {
    */
 
   // 天气
-  async getWeather(city_name: string): Promise<IWeatherResponseProps | null> {
-    try {
-      const response = await axios({ url: WEATHER_API, params: { city: city_name } })
-      const result = response.data
-
-      console.log(result)
-
-      // 预警天气
-      if (!(result.alarm?.alarm_type && result.alarm?.alarm_level)) result.alarm = null
-
-      console.log('天气请求成功==>', city_name)
-      return result
-    } catch (error) {
-      console.log('天气请求失败==>', error)
-      return null
-    }
+  async getWeather(city_name: string): Promise<IWeatherResponseProps> {
+    const res = await getTian({ url: LoveMsgURL.weather, params: { city: city_name } })
+    console.log(res)
+    return res?.[0]
   }
 
   // 每日简报

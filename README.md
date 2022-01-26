@@ -24,26 +24,11 @@
 <!-- [![ci](https://github.com/JS-banana/notify-server/actions/workflows/goodAfternoon.yml/badge.svg)](https://github.com/JS-banana/notify-server/actions/workflows/goodAfternoon.yml)
 [![ci](https://github.com/JS-banana/notify-server/actions/workflows/goodEvening.yml/badge.svg)](https://github.com/JS-banana/notify-server/actions/workflows/goodEvening.yml) -->
 
-## 已添加功能
+## 重构天气功能
 
-- [x] 每天给女友发早安和土味情话
-  <details><summary>点击查看详细内容</summary>
-  
-  - 个人定制化信息
-  - 天气信息
-  - 预警提醒
-  - 农历信息
-  - 节日信息
-  - 每日一言
-  - 最美宋词
-  - 雷人笑话
-  - 土味情话
-  - 每日英语
-  - 睡前故事
-  - 60s看世界
-  </details>
+为了求稳，决定暂时先不用免费的接口了，该功能使用**天行数据**提供的接口API，
 
-## 效果
+简要说明：
 
 <!-- ![wx_love-1](https://cdn.jsdelivr.net/gh/JS-banana/images/vuepress/wx_love-1.png) -->
 

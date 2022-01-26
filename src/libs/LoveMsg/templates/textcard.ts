@@ -16,21 +16,19 @@ const start_stamp = '2021-03-26'
 
 export const textCardTemplate = (data: TextCardTemplateProps) => {
   const {
-    city,
+    area,
     date,
-    wea,
-    tem1,
-    tem2,
-    win,
-    win_speed_day,
-    air,
-    air_level,
-    // air_tips,
+    weather,
+    highest,
+    lowest,
+    wind,
+    windsc,
     humidity,
-    alarm,
-    lunarInfo,
     week,
-    oneWord,
+    pop,
+    pcpn,
+    tips,
+    lunarInfo,
   } = data
 
   // 今日、恋爱天数
@@ -44,26 +42,30 @@ export const textCardTemplate = (data: TextCardTemplateProps) => {
   const jieqi_info = jieqi ? `| ${jieqi}` : ''
 
   // 拼接内容
-  let description = `${city} | ${today} | ${week} ${festival_info}
+  let description = `${area} | ${today} | ${week} ${festival_info}
 农历 | ${lubarmonth}${lunarday} ${lunar_festival_info} ${jieqi_info}\n
 今日天气状况：
-天气：${wea}
-${win}：${win_speed_day}
-温度：${tem2}℃ ~ ${tem1}℃
-湿度：${humidity}
-空气：${air_level} | ${air}\n`
+天气：${weather}
+${wind}：${windsc}
+温度：${lowest}℃ ~ ${highest}℃
+湿度：${humidity}\n`
 
-  // 添加预警天气
-  if (alarm) {
+  if (weather.includes('雨')) {
     description += `
-有预警信息哦：${alarm.alarm_type} | ${alarm.alarm_level}预警\n`
+降雨概率：${pop}%
+降雨量：${pcpn}mm\n`
+  }
+  // 生活指数提示
+  if (tips) {
+    description += `
+生活指数提示：${tips}\n`
   }
 
   // 最高温度
-  if (+tem1 <= 3) {
+  if (+highest <= 3) {
     description += `
 哈喽哈喽~这里是来自崽崽的爱心提醒哦：
-今日最高温度仅为🥶 ${tem1}℃，可冷可冷了~
+今日最高温度仅为🥶 ${highest}℃，可冷可冷了~
 鱼崽崽可要注意保暖哦~\n`
   }
 
@@ -72,10 +74,10 @@ ${win}：${win_speed_day}
   // 出行建议：${air_tips}`
   //   }
 
-  if (oneWord) {
-    description += `
-『 ${oneWord.hitokoto} 』`
-  }
+  //   if (oneWord) {
+  //     description += `
+  // 『 ${oneWord.hitokoto} 』`
+  //   }
 
   // 内容末尾，自定义
   description += `

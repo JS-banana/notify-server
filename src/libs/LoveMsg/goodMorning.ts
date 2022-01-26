@@ -50,8 +50,7 @@ const weatherInfo = async () => {
   const weather = await API.getWeather('蚌埠')
   if (weather) {
     const lunarInfo = await API.getLunarDate(weather.date)
-    const oneWord = await API.getOneWord()
-    const template = textCardTemplate({ ...weather, lunarInfo, oneWord })
+    const template = textCardTemplate({ ...weather, lunarInfo })
     console.log('weatherInfo', template)
 
     // 发送消息

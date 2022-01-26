@@ -48,6 +48,5 @@ jobs:
           WX_COMPANY_ID: ${{ secrets.WX_COMPANY_ID }}
           WX_APP_ID: ${{ secrets.WX_APP_ID }}
           WX_APP_SECRET: ${{ secrets.WX_APP_SECRET }}
-          WX_BOT_KEY: ${{ secrets.WX_BOT_KEY }}
           TIAN_API_KEY: ${{ secrets.TIAN_API_KEY }}
           MESSAGE_TYPE: goodEvening

@@ -59,8 +59,10 @@ class API {
       const response = await axios({ url: WEATHER_API, params: { city: city_name } })
       const result = response.data
 
+      console.log(result)
+
       // 预警天气
-      if (!(result.alarm?.alarm_type && result.alarm_content)) result.alarm = null
+      if (!(result.alarm?.alarm_type && result.alarm?.alarm_level)) result.alarm = null
 
       console.log('天气请求成功==>', city_name)
       return result

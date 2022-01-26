@@ -51,14 +51,13 @@ ${wind}：${windsc}
 湿度：${humidity}\n`
 
   if (weather.includes('雨')) {
-    description += `
-降雨概率：${pop}%
+    description += `降雨概率：${pop}%
 降雨量：${pcpn}mm\n`
   }
   // 生活指数提示
   if (tips) {
     description += `
-生活指数提示：${tips}\n`
+${tips}\n`
   }
 
   // 最高温度

@@ -60,7 +60,7 @@ class API {
       const result = response.data
 
       // 预警天气
-      if (!result.alarm.alarm_type && !result.alarm_content) result.alarm = null
+      if (!(result.alarm?.alarm_type && result.alarm_content)) result.alarm = null
 
       console.log('天气请求成功==>', city_name)
       return result

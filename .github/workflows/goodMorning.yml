@@ -55,6 +55,4 @@ jobs:
           WX_APP_SECRET: ${{ secrets.WX_APP_SECRET }}
           WX_BOT_KEY: ${{ secrets.WX_BOT_KEY }}
           TIAN_API_KEY: ${{ secrets.TIAN_API_KEY }}
-          TIANQI_APPID: ${{ secrets.TIANQI_APPID }}
-          TIANQI_APPSECRET: ${{ secrets.TIANQI_APPSECRET }}
           MESSAGE_TYPE: goodMorning

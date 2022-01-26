@@ -100,9 +100,6 @@ WX_APP_ID= 应用ID
 WX_APP_SECRET= 应用 Secret
 
 TIAN_API_KEY= 天行数据 key
-
-TIANQI_APPID=天气APP ID
-TIANQI_APPSECRET=天气APP Secret
 ```
 
 <details><summary>点击查看企业微信的注册步骤的详细示例</summary>

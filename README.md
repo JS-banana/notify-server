@@ -24,11 +24,26 @@
 <!-- [![ci](https://github.com/JS-banana/notify-server/actions/workflows/goodAfternoon.yml/badge.svg)](https://github.com/JS-banana/notify-server/actions/workflows/goodAfternoon.yml)
 [![ci](https://github.com/JS-banana/notify-server/actions/workflows/goodEvening.yml/badge.svg)](https://github.com/JS-banana/notify-server/actions/workflows/goodEvening.yml) -->
 
-## 重构天气功能
+## 已添加功能
 
-为了求稳，决定暂时先不用免费的接口了，该功能使用**天行数据**提供的接口API，
+- [x] 每天给女友发早安和土味情话
+  <details><summary>点击查看详细内容</summary>
+  
+  - 个人定制化信息
+  - 天气信息
+  - 预警提醒
+  - 农历信息
+  - 节日信息
+  - 每日一言
+  - 最美宋词
+  - 雷人笑话
+  - 土味情话
+  - 每日英语
+  - 睡前故事
+  - 60s看世界
+  </details>
 
-简要说明：
+## 效果
 
 <!-- ![wx_love-1](https://cdn.jsdelivr.net/gh/JS-banana/images/vuepress/wx_love-1.png) -->
 
@@ -75,14 +90,12 @@
 
 非收费接口也有，不过目前看来功能有限（免费接口很容易这样用着用着就不行了😿）
 
-因此，接下来会考虑其他接口，如：天行数据提供的天气API，需要付费，一元一万次，申请后免费送500次，或[和风天气](https://dev.qweather.com/)，提供免费版，功能不输商业版
+为了求稳，决定暂时先不用免费的接口了，该功能使用天行数据提供的接口API，
 
+简要说明：
+
+其他非天气接口，注册会员用户每天可免费调用100次，个人使用足够了，对于天气这种特殊接口采用独立计费模式，不过价格也足够便宜，1元10000次，且申请接口后立即赠送500次。
 如果使用该接口请在环境变量中添加：
-
-```env
-TIANQI_APPID=天气APP ID
-TIANQI_APPSECRET=天气APP Secret
-```
 
 ## 开发
 
@@ -100,6 +113,9 @@ WX_APP_ID= 应用ID
 WX_APP_SECRET= 应用 Secret
 
 TIAN_API_KEY= 天行数据 key
+
+TIANQI_APPID=天气APP ID
+TIANQI_APPSECRET=天气APP Secret
 ```
 
 <details><summary>点击查看企业微信的注册步骤的详细示例</summary>

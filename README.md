@@ -31,7 +31,6 @@
   
   - 个人定制化信息
   - 天气信息
-  - 预警提醒
   - 农历信息
   - 节日信息
   - 每日一言
@@ -80,7 +79,7 @@
 
 注：如果采取该接口，需要在 **添加环境变量**这一步中，再添加Key的变量，作为天行数据接口使用时的必填参数
 
-> 注：免费开源接口需要考虑服务稳定性！
+> 免费开源接口需要考虑服务稳定性！
 >
 > 本项目目前已使用到的天行数据接口见 [src/api/loveMsg](https://github.com/JS-banana/notify-server/src/api/loveMsg.ts)
 
@@ -113,9 +112,6 @@ WX_APP_ID= 应用ID
 WX_APP_SECRET= 应用 Secret
 
 TIAN_API_KEY= 天行数据 key
-
-TIANQI_APPID=天气APP ID
-TIANQI_APPSECRET=天气APP Secret
 ```
 
 <details><summary>点击查看企业微信的注册步骤的详细示例</summary>

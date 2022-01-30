@@ -8,7 +8,7 @@ import { textTemplate } from './templates/text'
 import { textCardTemplate } from './templates/textcard'
 
 // 美丽短句
-const goodWord = async () => {
+const goodWord = async() => {
   try {
     // 并行请求，优响相应
     const dataSource = await Promise.allSettled([
@@ -22,8 +22,8 @@ const goodWord = async () => {
     ])
 
     // 过滤掉异常数据
-    const [sayLove, caiHongpi, oneWord, songLyrics, oneMagazines, netEaseCloud, dayEnglish] =
-      dataSource.map((n) => (n.status === 'fulfilled' ? n.value : null))
+    const [sayLove, caiHongpi, oneWord, songLyrics, oneMagazines, netEaseCloud, dayEnglish]
+      = dataSource.map(n => (n.status === 'fulfilled' ? n.value : null))
 
     // 对象写法
     const data: any = {
@@ -40,26 +40,25 @@ const goodWord = async () => {
     console.log('goodWord', template)
 
     wxNotify(template)
-  } catch (error) {
+  }
+  catch (error) {
     console.log('goodWord:err', error)
   }
 }
 
 // 天气信息
-const weatherInfo = async () => {
-  const weather = await API.getWeather('蚌埠')
+const weatherInfo = async() => {
+  const weather = await API.getWeather('广州')
   if (weather) {
     const lunarInfo = await API.getLunarDate(weather.date)
     const template = textCardTemplate({ ...weather, lunarInfo })
-    console.log('weatherInfo', template)
-
     // 发送消息
     await wxNotify(template)
   }
 }
 
 // goodMorning
-export const goodMorning = async () => {
+export const goodMorning = async() => {
   await weatherInfo()
   await goodWord()
 }

@@ -47,7 +47,7 @@ export const textCardTemplate = (data: TextCardTemplateProps) => {
 今日天气状况：
 天气：${weather}
 ${wind}：${windsc}
-温度：${lowest}℃ ~ ${highest}℃
+温度：${lowest} ~ ${highest}
 湿度：${humidity}\n`
 
   if (weather.includes('雨')) {

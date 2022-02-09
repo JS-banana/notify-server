@@ -241,3 +241,13 @@ schedule:
 
 - 2022-01-25：README文档更新、添加图示，免费天气接口稳定性及功能标注
 - 2022-01-26：天气接口调整、功能调整，见分支`feat/weather`
+
+## 交流
+
+为了满足沟通需要，最后留下二维码（备注写【github】）
+
+![微信](/images/wx.jpg)
+
+## 感谢star
+
+[![Stargazers over time](https://starchart.cc/JS-banana/notify-server.svg)](https://starchart.cc/JS-banana/notify-server)

@@ -1,43 +1,44 @@
 lockfileVersion: 5.3
 
-importers:
+specifiers:
+  '@antfu/eslint-config': ^0.14.0
+  '@antfu/ni': ^0.12.0
+  '@types/node': ^17.0.0
+  axios: ^0.24.0
+  bumpp: ^7.1.1
+  dayjs: ^1.10.7
+  dotenv: ^10.0.0
+  eslint: ^8.5.0
+  eslint-config-prettier: ^8.3.0
+  eslint-plugin-prettier: ^4.0.0
+  esno: ^0.13.0
+  prettier: ^2.5.1
+  typescript: ^4.5.4
+  unbuild: ^0.6.7
+  vite: ^2.7.3
+  vitest: ^0.0.101
+  yaml: ^1.10.2
 
-  .:
-    specifiers:
-      '@antfu/eslint-config': ^0.14.0
-      '@antfu/ni': ^0.12.0
-      '@types/node': ^17.0.0
-      axios: ^0.24.0
-      bumpp: ^7.1.1
-      dayjs: ^1.10.7
-      dotenv: ^10.0.0
-      eslint: ^8.5.0
-      eslint-config-prettier: ^8.3.0
-      eslint-plugin-prettier: ^4.0.0
-      esno: ^0.13.0
-      prettier: ^2.5.1
-      typescript: ^4.5.4
-      unbuild: ^0.6.7
-      vite: ^2.7.3
-      vitest: ^0.0.101
-    dependencies:
-      axios: registry.npmmirror.com/axios/0.24.0
-      dayjs: registry.npmmirror.com/dayjs/1.10.7
-      dotenv: 10.0.0
-    devDependencies:
-      '@antfu/eslint-config': 0.14.0_eslint@8.5.0+typescript@4.5.4
-      '@antfu/ni': 0.12.0
-      '@types/node': 17.0.0
-      bumpp: 7.1.1
-      eslint: 8.5.0
-      eslint-config-prettier: registry.npmmirror.com/eslint-config-prettier/8.3.0_eslint@8.5.0
-      eslint-plugin-prettier: registry.npmmirror.com/eslint-plugin-prettier/4.0.0_94e1b6d3ce6ea916847122712570e9ae
-      esno: 0.13.0_typescript@4.5.4
-      prettier: registry.npmmirror.com/prettier/2.5.1
-      typescript: 4.5.4
-      unbuild: 0.6.7
-      vite: 2.7.3
-      vitest: 0.0.101_vite@2.7.3
+dependencies:
+  axios: registry.npmmirror.com/axios/0.24.0
+  dayjs: registry.npmmirror.com/dayjs/1.10.7
+  dotenv: 10.0.0
+  yaml: registry.npmmirror.com/yaml/1.10.2
+
+devDependencies:
+  '@antfu/eslint-config': 0.14.0_eslint@8.5.0+typescript@4.5.4
+  '@antfu/ni': 0.12.0
+  '@types/node': 17.0.0
+  bumpp: 7.1.1
+  eslint: 8.5.0
+  eslint-config-prettier: registry.npmmirror.com/eslint-config-prettier/8.3.0_eslint@8.5.0
+  eslint-plugin-prettier: registry.npmmirror.com/eslint-plugin-prettier/4.0.0_94e1b6d3ce6ea916847122712570e9ae
+  esno: 0.13.0_typescript@4.5.4
+  prettier: registry.npmmirror.com/prettier/2.5.1
+  typescript: 4.5.4
+  unbuild: 0.6.7
+  vite: 2.7.3
+  vitest: 0.0.101_vite@2.7.3
 
 packages:
 
@@ -2917,16 +2918,11 @@ packages:
     dependencies:
       eslint-visitor-keys: 3.1.0
       lodash: 4.17.21
-      yaml: 1.10.2
-    dev: true
-
-  /yaml/1.10.2:
-    resolution: {integrity: sha512-r3vXyErRCYJ7wg28yvBY5VSoAF8ZvlcW9/BwUzEtUsjvX/DKs24dIkuwjtuprwJJHsbyUbLApepYTR1BN4uHrg==}
-    engines: {node: '>= 6'}
+      yaml: registry.npmmirror.com/yaml/1.10.2
     dev: true
 
   registry.npmmirror.com/@babel/code-frame/7.16.0:
-    resolution: {integrity: sha1-DfyAMJvuyEEeZecGRhxAiwu5tDE=, registry: https://registry.nlark.com/, tarball: https://registry.npmmirror.com/@babel/code-frame/download/@babel/code-frame-7.16.0.tgz}
+    resolution: {integrity: sha512-IF4EOMEV+bfYwOmNxGzSnjR2EmQod7f1UXOpZM3l4i4o4QNwzjtJAu/HxdjHq0aYBvdqMuQEY1eg0nqW9ZPORA==, registry: https://registry.nlark.com/, tarball: https://registry.npmmirror.com/@babel/code-frame/-/code-frame-7.16.0.tgz}
     name: '@babel/code-frame'
     version: 7.16.0
     engines: {node: '>=6.9.0'}
@@ -3356,7 +3352,7 @@ packages:
     dev: false
 
   registry.npmmirror.com/fsevents/2.3.2:
-    resolution: {integrity: sha1-ilJveLj99GI7cJ4Ll1xSwkwC/Ro=, registry: https://registry.nlark.com/, tarball: https://registry.npmmirror.com/fsevents/download/fsevents-2.3.2.tgz}
+    resolution: {integrity: sha512-xiqMQR4xAeHTuB9uWm+fFRcIOgKBMiOBP+eXiyT7jsgVCq1bkVygt00oASowB7EdtpOHaaPgKt812P9ab+DDKA==, registry: https://registry.nlark.com/, tarball: https://registry.npmmirror.com/fsevents/-/fsevents-2.3.2.tgz}
     name: fsevents
     version: 2.3.2
     engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
@@ -3366,9 +3362,10 @@ packages:
     optional: true
 
   registry.npmmirror.com/graceful-fs/4.2.6:
-    resolution: {integrity: sha1-/wQLKwhTsjw9MQJ1I3BvGIXXa+4=, registry: https://registry.nlark.com/, tarball: https://registry.npmmirror.com/graceful-fs/download/graceful-fs-4.2.6.tgz}
+    resolution: {integrity: sha512-nTnJ528pbqxYanhpDYsi4Rd8MAeaBA67+RZ10CM1m3bTAVFEDcd5AuA4a6W5YkGZ1iNXHzZz8T6TBKLeBuNriQ==, registry: https://registry.nlark.com/, tarball: https://registry.npmmirror.com/graceful-fs/-/graceful-fs-4.2.6.tgz}
     name: graceful-fs
     version: 4.2.6
+    requiresBuild: true
     dev: true
     optional: true
 
@@ -3406,3 +3403,9 @@ packages:
     dependencies:
       has-flag: 3.0.0
     dev: true
+
+  registry.npmmirror.com/yaml/1.10.2:
+    resolution: {integrity: sha512-r3vXyErRCYJ7wg28yvBY5VSoAF8ZvlcW9/BwUzEtUsjvX/DKs24dIkuwjtuprwJJHsbyUbLApepYTR1BN4uHrg==, registry: https://registry.nlark.com/, tarball: https://registry.npmmirror.com/yaml/-/yaml-1.10.2.tgz}
+    name: yaml
+    version: 1.10.2
+    engines: {node: '>= 6'}

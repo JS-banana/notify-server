@@ -10,9 +10,9 @@
  */
 
 import dayjs from '../../../utils/dayjs'
+import { getConfig } from '../../../utils/getConfig'
 
-// 相识的日子
-const start_stamp = '2021-03-26'
+const CONFIG = getConfig().loveMsg
 
 export const textCardTemplate = (data: TextCardTemplateProps) => {
   const {
@@ -33,18 +33,23 @@ export const textCardTemplate = (data: TextCardTemplateProps) => {
 
   // 今日、恋爱天数
   const today = `${date.replace('-', '年').replace('-', '月')}日`
-  const dateLength = dayjs(date).diff(start_stamp, 'day')
-
-  // 公历节日、农历节日和二十四节气
-  const { festival, lunar_festival, jieqi, lubarmonth, lunarday } = lunarInfo
-  const festival_info = festival ? `| ${festival}` : ''
-  const lunar_festival_info = lunar_festival ? `| ${lunar_festival}` : ''
-  const jieqi_info = jieqi ? `| ${jieqi}` : ''
+  const dateLength = dayjs(date).diff(CONFIG.start_stamp, 'day')
 
   // 拼接内容
-  let description = `${area} | ${today} | ${week} ${festival_info}
-农历 | ${lubarmonth}${lunarday} ${lunar_festival_info} ${jieqi_info}\n
-今日天气状况：
+  let description = `${area} | ${today} | ${week}`
+
+  if (CONFIG.date_lunarInfo && lunarInfo) {
+    const { festival, lunar_festival, jieqi, lubarmonth, lunarday } = lunarInfo
+    // 公历节日、农历节日和二十四节气
+    const festival_info = festival ? `| ${festival}` : ''
+    const lunar_festival_info = lunar_festival ? `| ${lunar_festival}` : ''
+    const jieqi_info = jieqi ? `| ${jieqi}` : ''
+
+    description += ` ${festival_info}
+农历 | ${lubarmonth}${lunarday} ${lunar_festival_info} ${jieqi_info}`
+  }
+
+  description += `\n今日天气状况：
 天气：${weather}
 ${wind}：${windsc}
 温度：${lowest} ~ ${highest}
@@ -55,17 +60,17 @@ ${wind}：${windsc}
 降雨量：${pcpn}mm\n`
   }
   // 生活指数提示
-  if (tips) {
+  if (CONFIG.weather_tips && tips) {
     description += `
 ${tips}\n`
   }
 
   // 最高温度
-  if (+highest <= 3) {
+  if (CONFIG.weather_tem && highest && +highest.replace('℃', '') <= 3) {
     description += `
-哈喽哈喽~这里是来自崽崽的爱心提醒哦：
-今日最高温度仅为🥶 ${highest}℃，可冷可冷了~
-鱼崽崽可要注意保暖哦~\n`
+哈喽哈喽~这里是来自${CONFIG.boy_name}的爱心提醒哦：
+今日最高温度仅为🥶 ${highest}，可冷可冷了~
+${CONFIG.girl_name}可要注意保暖哦~\n`
   }
 
   //   if (air_tips) {
@@ -91,8 +96,8 @@ ${tips}\n`
       description,
       //   url: 'https://api.lovelive.tools/api/SweetNothings',
       //   url: 'https://v1.jinrishici.com/all.svg',
-      url: 'https://api.vvhan.com/api/60s', // 60s看世界
-      btntxt: 'By崽崽',
+      url: `${CONFIG.card_url}`, // 60s看世界
+      btntxt: `By${CONFIG.boy_name}`,
     },
   }
 }

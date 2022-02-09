@@ -3,9 +3,12 @@
  * @description 说早安
  */
 import API from '../../api/loveMsg'
-import { wxNotify } from '../WxNotify'
+import { getConfig } from '../../utils/getConfig'
+// import { wxNotify } from '../WxNotify'
 import { textTemplate } from './templates/text'
 import { textCardTemplate } from './templates/textcard'
+
+const CONFIG = getConfig().loveMsg
 
 // 美丽短句
 const goodWord = async () => {
@@ -39,7 +42,7 @@ const goodWord = async () => {
     const template = textTemplate(data)
     console.log('goodWord', template)
 
-    wxNotify(template)
+    // wxNotify(template)
   } catch (error) {
     console.log('goodWord:err', error)
   }
@@ -48,14 +51,14 @@ const goodWord = async () => {
 // 天气信息
 const weatherInfo = async () => {
   try {
-    const weather = await API.getWeather('蚌埠')
+    const weather = await API.getWeather(CONFIG.city_name)
     if (weather) {
       const lunarInfo = await API.getLunarDate(weather.date)
       const template = textCardTemplate({ ...weather, lunarInfo })
       console.log('weatherInfo', template)
 
       // 发送消息
-      await wxNotify(template)
+      // await wxNotify(template)
     }
   } catch (error) {
     console.log('weatherInfo:err', error)

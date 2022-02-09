@@ -1,0 +1,21 @@
+# 配置文件
+
+# 功能：给女朋友发早安和土味情话
+loveMsg:
+  # 与女朋友相识的日子
+  start_stamp: 2021-03-26
+  # 女朋友所在城市（不要带‘市’）
+  city_name: 蚌埠
+  # 对女朋友的爱称
+  girl_name: 鱼崽
+  # 对自己的称呼
+  boy_name: 崽崽
+  # 点击卡片详情地址
+  card_url: https://api.vvhan.com/api/60s
+  # 天气生活指数提示（默认开启）
+  weather_tips: true
+  # 极端天气温度提醒（默认开启）
+  # 卡片内容字节限制可能显示不完全
+  weather_tem: true
+  # 农历信息（默认开启）
+  date_lunarInfo: true

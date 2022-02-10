@@ -4,7 +4,7 @@
  */
 import API from '../../api/loveMsg'
 import { getConfig } from '../../utils/getConfig'
-// import { wxNotify } from '../WxNotify'
+import { wxNotify } from '../WxNotify'
 import { textTemplate } from './templates/text'
 import { textCardTemplate } from './templates/textcard'
 
@@ -42,7 +42,7 @@ const goodWord = async () => {
     const template = textTemplate(data)
     console.log('goodWord', template)
 
-    // wxNotify(template)
+    wxNotify(template)
   } catch (error) {
     console.log('goodWord:err', error)
   }
@@ -58,7 +58,7 @@ const weatherInfo = async () => {
       console.log('weatherInfo', template)
 
       // 发送消息
-      // await wxNotify(template)
+      await wxNotify(template)
     }
   } catch (error) {
     console.log('weatherInfo:err', error)

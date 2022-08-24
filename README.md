@@ -163,6 +163,10 @@ PS：如果出现`接口请求正常，企业微信接受消息正常，个人�
 
 </details>
 
+### 企信IP问题
+
+消息发送成功，但提示IP错误的问题收集，详情请查看 [企业可信ip问题讨论](https://github.com/JS-banana/notify-server/issues/9)
+
 ### 本地开发
 
 1. 可以直接fork本项目 => 克隆至本地
@@ -251,12 +255,31 @@ yml语法比json更简洁易读，比较简单，[阮一峰 YAML 语言教程](h
 - 2022-01-25：README文档更新、添加图示，免费天气接口稳定性及功能标注
 - 2022-01-26：天气接口调整、功能调整，见分支`feat/weather`
 - 2022-02-09：增加容错处理，增加独立配置文件方便用户定制
+- 2022-08-24：fix 美丽短句config配置问题[adf87fc](https://github.com/JS-banana/notify-server/commit/adf87fc04c78547fbd7070be01b1e147b6a4b856)，完善文档
 
-<!-- ## 交流
+## 交流
 
-为了满足沟通需要，最后留下二维码（备注写【github】）
+可关注我公众号（前端小帅），加我微信一起交流学习~
 
-![微信](/images/wx.jpg) -->
+<table>
+  <tr>
+    <td valign="top">
+      <img height="120" alt="公众号：前端小帅" src="https://cdn.jsdelivr.net/gh/JS-banana/images/vuepress/4.png" />
+    </td>
+  </tr>
+</table>
+
+<!-- ![微信](/images/wx.jpg) -->
+
+## 版权声明
+
+本项目基于 [MIT](LICENSE) 开源规范，使用转载请注明出处和作者。
+
+## 请作者和咖啡☕
+
+如果觉得这个项目还不错，或者对你有所帮助，请给作者点个 star 就是对我的最大支持，你也可以选择请作者喝咖啡~
+
+<img width="300" alt="支付宝" src="./images/alipay.jpg" />
 
 ## 感谢star
 

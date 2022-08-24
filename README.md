@@ -275,12 +275,14 @@ yml语法比json更简洁易读，比较简单，[阮一峰 YAML 语言教程](h
 
 本项目基于 [MIT](LICENSE) 开源规范，使用转载请注明出处和作者。
 
-## 请作者和咖啡☕
+## 请作者喝咖啡☕
 
-如果觉得这个项目还不错，或者对你有所帮助，请给作者点个 star 就是对我的最大支持，你也可以选择请作者喝咖啡~
+如果觉得这个项目还不错，或者这个项目对你有所帮助，可以选择请作者喝咖啡~
 
 <img width="300" alt="支付宝" src="./images/alipay.jpg" />
 
 ## 感谢star
+
+你的 star 就是对我的最大支持🙏
 
 [![Stargazers over time](https://starchart.cc/JS-banana/notify-server.svg)](https://starchart.cc/JS-banana/notify-server)

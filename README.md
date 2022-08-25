@@ -42,6 +42,8 @@
   - 60s看世界
   </details>
 
+<sub>Support this project by starring and sharing it. [Follow me](https://github.com/JS-banana) to see what other cool projects I'm working on.</sub>
+
 ## 效果
 
 <!-- ![wx_love-1](https://cdn.jsdelivr.net/gh/JS-banana/images/vuepress/wx_love-1.png) -->
@@ -163,9 +165,13 @@ PS：如果出现`接口请求正常，企业微信接受消息正常，个人�
 
 </details>
 
+### 企信IP问题
+
+消息发送成功，但提示IP错误的问题收集，详情请查看 [企业可信ip问题讨论](https://github.com/JS-banana/notify-server/issues/9)
+
 ### 本地开发
 
-1. 可以直接fork本项目 => 克隆至本地
+1. 可以先star本项目给个支持，然后直接fork本项目 => 克隆至本地
 2. 复制 `.env.example`文件重命名为 `.env`，并按照要求填写对应变量值
 3. 安装依赖
 
@@ -233,8 +239,13 @@ yml语法比json更简洁易读，比较简单，[阮一峰 YAML 语言教程](h
 
 计划：
 
-- [ ] 分层：核心能力模块与衍生功能点进行模块划分调整
+目前项目结构现在看来是有点混杂，接下来首要任务就是进行模块和功能的拆分、梳理，分层管理。
+
 - [x] 天气接口重构
+- [ ] 分层：核心能力模块与衍生功能点进行模块划分调整
+- [ ] 女友生日倒计时（一个月时开始计时通知，消息展现在卡片中）
+- [ ] 本地方式考虑支持定时任务以实现非手动执行（GitHub Action为线上服务方式）
+- [ ] 美丽短句的开头语句优化调整
 - [ ] 每周豆瓣热映电影
 - [ ] 随机照片
 
@@ -251,13 +262,34 @@ yml语法比json更简洁易读，比较简单，[阮一峰 YAML 语言教程](h
 - 2022-01-25：README文档更新、添加图示，免费天气接口稳定性及功能标注
 - 2022-01-26：天气接口调整、功能调整，见分支`feat/weather`
 - 2022-02-09：增加容错处理，增加独立配置文件方便用户定制
+- 2022-08-24：fix 美丽短句config配置问题[adf87fc](https://github.com/JS-banana/notify-server/commit/adf87fc04c78547fbd7070be01b1e147b6a4b856)，完善文档
 
-<!-- ## 交流
+## 交流
 
-为了满足沟通需要，最后留下二维码（备注写【github】）
+可关注我公众号（前端小帅），加我微信一起交流学习~
 
-![微信](/images/wx.jpg) -->
+<table>
+  <tr>
+    <td valign="top">
+      <img height="120" alt="公众号：前端小帅" src="https://cdn.jsdelivr.net/gh/JS-banana/images/vuepress/4.png" />
+    </td>
+  </tr>
+</table>
+
+<!-- ![微信](/images/wx.jpg) -->
+
+## 版权声明
+
+本项目基于 [MIT](LICENSE) 开源规范，使用转载请注明出处和作者。
+
+## 请作者喝咖啡☕
+
+如果觉得这个项目还不错，或者这个项目对你有所帮助，可以选择请作者喝咖啡~
+
+<img width="300" alt="支付宝" src="./images/alipay.jpg" />
 
 ## 感谢star
+
+你的 star 就是对我的最大支持🙏
 
 [![Stargazers over time](https://starchart.cc/JS-banana/notify-server.svg)](https://starchart.cc/JS-banana/notify-server)

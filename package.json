@@ -18,7 +18,7 @@
     "type": "git",
     "url": "git+https://github.com/JS-banana/node-ts.git"
   },
-  "license": "MIT",
+  "license": "GPL-3.0 license",
   "author": "JS-banana <sss213018@163.com>",
   "sideEffects": false,
   "exports": {

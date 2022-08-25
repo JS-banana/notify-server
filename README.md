@@ -42,6 +42,8 @@
   - 60s看世界
   </details>
 
+<sub>Support this project by starring and sharing it. [Follow me](https://github.com/JS-banana) to see what other cool projects I'm working on.</sub>
+
 ## 效果
 
 <!-- ![wx_love-1](https://cdn.jsdelivr.net/gh/JS-banana/images/vuepress/wx_love-1.png) -->

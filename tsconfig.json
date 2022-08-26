@@ -11,6 +11,6 @@
     "skipDefaultLibCheck": true,
     "typeRoots": ["typings"]
   },
-  "include": ["src", "typings", "test"],
+  "include": ["src", "packages", "typings"],
   "exclude": ["node_modules", "dist"]
 }

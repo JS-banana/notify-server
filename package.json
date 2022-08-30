@@ -43,6 +43,8 @@
     "start": "esno src/index.ts",
     "depoly:start": "pm2 start ecosystem.config.js",
     "depoly:stop": "pm2 stop ecosystem.config.js",
+    "depoly:status": "pm2 status ecosystem.config.js",
+    "depoly:log": "pm2 log",
     "test": "echo 你好~"
   },
   "devDependencies": {

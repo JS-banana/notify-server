@@ -257,9 +257,9 @@ npm run depoly:stop
 
 ```sh
 # 查看服务状态
-npx pm2 ls
+npm run depoly:status
 # 查看服务日志
-npx pm2 log
+npm run depoly:log
 ```
 
 ## 全局配置

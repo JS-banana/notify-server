@@ -8,6 +8,10 @@ interface loveMsgProps {
   city_name: string
   /* 对女朋友的爱称 */
   girl_name: string
+  /* 女朋友的生日 12月15日 */
+  girl_birthday: string
+  /* 女朋友的生日 倒计时多久时开始提醒，单位天 */
+  girl_birthday_show: 30
   /* 对自己的称呼 */
   boy_name: string
   /* 点击卡片详情地址 */
@@ -28,6 +32,8 @@ interface loveMsgProps {
    * @default true
    */
   date_lunarInfo: boolean
+  /* 随机一句情话 */
+  random_love: boolean
 }
 
 type IConfigProps = { loveMsg: loveMsgProps }

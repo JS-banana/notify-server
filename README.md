@@ -232,7 +232,7 @@ schedule:
 
 ### 部署本地服务（方式三）
 
-通过使用 [pm2](https://pm2.fenxianglu.cn/) 实现对自动化脚本的本地化部署。当使用该方式后，你只需配置好[发送消息的时间](./scripts/schedule.js)，然后启动服务即可😎。
+使用 [pm2](https://pm2.fenxianglu.cn/) 实现对自动化脚本的本地化部署。当使用该方式后，你只需配置好[发送消息的时间](./scripts/schedule.js)，然后启动服务即可😎。
 
 如果你是以下设备，请注意：
 

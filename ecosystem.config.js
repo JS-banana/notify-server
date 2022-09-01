@@ -5,6 +5,7 @@ module.exports = {
     {
       name: 'notify-server',
       script: 'scripts/schedule.js',
+      max_memory_restart: '200M', // 服务占用的内存超过150M，自动进行重启
     },
   ],
 }

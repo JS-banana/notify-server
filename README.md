@@ -311,12 +311,15 @@ yml语法比json更简洁易读，比较简单，[阮一峰 YAML 语言教程](h
 
 ## 交流
 
-可关注我公众号（前端小帅），加我微信一起交流学习~
+你可以关注我公众号（前端小帅），然后加我微信交流，或者直接添加交流群，一起沟通学习~
 
 <table>
   <tr>
     <td valign="top">
-      <img height="120" alt="公众号：前端小帅" src="https://cdn.jsdelivr.net/gh/JS-banana/images/vuepress/4.png" />
+      <img height="160" alt="公众号：前端小帅" src="https://cdn.jsdelivr.net/gh/JS-banana/images/vuepress/4.png" />
+    </td>
+    <td valign="top">
+      <img height="160" alt="交流群" src="/images/wx-group.jpg" />
     </td>
   </tr>
 </table>

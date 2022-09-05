@@ -9,7 +9,7 @@
  * 微信通知 textcard类型的description内容限制512个字节
  */
 
-import dayjs, { getDiffByDate } from '../../../utils/dayjs'
+import dayjs from '../../../utils/dayjs'
 import { getConfig } from '../../../utils/getConfig'
 
 const CONFIG = getConfig().loveMsg
@@ -22,12 +22,13 @@ export const textCardTemplate = (data: TextCardTemplateProps) => {
     highest,
     lowest,
     wind,
-    pop,
     windsc,
+    humidity,
     week,
+    pop,
+    pcpn,
     tips,
     lunarInfo,
-    randomLove,
   } = data
 
   // 今日、恋爱天数
@@ -45,37 +46,19 @@ export const textCardTemplate = (data: TextCardTemplateProps) => {
     const jieqi_info = jieqi ? `| ${jieqi}` : ''
 
     description += ` ${festival_info}
-农历 | ${lubarmonth}${lunarday} ${lunar_festival_info} ${jieqi_info}\n`
+农历 | ${lubarmonth}${lunarday} ${lunar_festival_info} ${jieqi_info}`
   }
 
-  description += `
-今日天气状况：
+  description += `\n今日天气状况：
 天气：${weather}
 ${wind}：${windsc}
-温度：${lowest} ~ ${highest}\n`
+温度：${lowest} ~ ${highest}
+湿度：${humidity}\n`
 
-  if (weather.includes('雨')) description += `降雨概率：${pop}%\n`
-
-  // 女友生日倒计时
-  if (CONFIG.girl_birthday) {
-    const diff = getDiffByDate(`${date.slice(0, 4)}/${CONFIG.girl_birthday}`)
-    if (diff !== null && diff > -1) {
-      if (diff === 0) {
-        description += `
-温馨提示：今天可是${CONFIG.girl_name}的生日哦，\n`
-      } else if (diff <= CONFIG.girl_birthday_show) {
-        description += `
-温馨提示：距离${CONFIG.girl_name}生日还有${diff}天\n`
-      }
-    }
+  if (weather.includes('雨')) {
+    description += `降雨概率：${pop}%
+降雨量：${pcpn}mm\n`
   }
-
-  // 随机一句情话
-  if (CONFIG.random_love && randomLove) {
-    description += `
-${randomLove}\n`
-  }
-
   // 生活指数提示
   if (CONFIG.weather_tips && tips) {
     description += `
@@ -102,7 +85,7 @@ ${CONFIG.girl_name}可要注意保暖哦~\n`
 
   // 内容末尾，自定义
   description += `
-[ 点我有惊喜 ] ❤️ 🧡 💛 💚 💖`
+  [ 点我有惊喜 ] ❤️ 🧡 💛 💚 💖`
 
   const title = `这是我们相识的第 ${dateLength} 天`
 

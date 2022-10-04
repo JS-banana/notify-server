@@ -4,7 +4,7 @@ interface IWeatherResponseProps {
   date: string
   /** 星期六 */
   week: string
-  /** 蚌埠 */
+  /** 广安 */
   area: string
   /** 晴 */
   weather: string

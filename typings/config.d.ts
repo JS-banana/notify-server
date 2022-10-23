@@ -69,6 +69,8 @@ interface loveMsgProps {
   /* 我的自定义情话、消息 */
   my_love_message_show: true
   my_love_message_content: Array<string>
+  /* 设置概率最大公约数，1/64 的概率 */
+  my_love_message_egg_probability: number
 }
 
 type IConfigProps = { loveMsg: loveMsgProps }

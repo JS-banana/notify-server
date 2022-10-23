@@ -308,6 +308,7 @@ yml语法比json更简洁易读，比较简单，[阮一峰 YAML 语言教程](h
 - 2022-02-09：增加容错处理，增加独立配置文件方便用户定制
 - 2022-08-24：fix 美丽短句config配置问题[adf87fc](https://github.com/JS-banana/notify-server/commit/adf87fc04c78547fbd7070be01b1e147b6a4b856)，完善文档
 - 2022-08-30: 增加本地化部署自动化脚本服务的功能[PR](https://github.com/JS-banana/notify-server/pull/15)
+- 2022-09-05: 美化模板，添加表情
 
 ## 交流
 

@@ -33,6 +33,8 @@ enum LoveMsgURL {
   joke = 'http://api.tianapi.com/joke/index',
   // 一言
   oneWord = 'https://v1.hitokoto.cn/?encode=json',
+  // 随机一句情话
+  random_love = 'https://api.vvhan.com/api/love',
 }
 
 class API {
@@ -125,7 +127,18 @@ class API {
   // 一言
   async getOneWord(): Promise<OneWordProps | null> {
     try {
-      const response = await axios(LoveMsgURL.oneWord, { timeout: 30000 })
+      const response = await axios(LoveMsgURL.oneWord, { timeout: 60000 })
+      return response.data
+    } catch (error) {
+      console.log(error)
+      return null
+    }
+  }
+
+  // 随机一句情话
+  async getRandomLove(): Promise<string | null> {
+    try {
+      const response = await axios(LoveMsgURL.random_love, { timeout: 60000 })
       return response.data
     } catch (error) {
       console.log(error)

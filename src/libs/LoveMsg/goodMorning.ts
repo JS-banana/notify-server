@@ -54,7 +54,8 @@ const weatherInfo = async () => {
     const weather = await API.getWeather(CONFIG.city_name)
     if (weather) {
       const lunarInfo = await API.getLunarDate(weather.date)
-      const template = textCardTemplate({ ...weather, lunarInfo })
+      const randomLove = await API.getRandomLove() // 随机一句情话
+      const template = textCardTemplate({ ...weather, lunarInfo, randomLove })
       console.log('weatherInfo', template)
 
       // 发送消息

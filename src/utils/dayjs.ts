@@ -21,4 +21,14 @@ export const weekToday = () => {
   return WEEKS[week]
 }
 
+// 日期差值
+export const getDiffByDate = (date: string): number | null => {
+  try {
+    return dayjs(date).diff(dayjs(), 'day')
+  } catch (error) {
+    console.log('日期错误', error)
+    return null
+  }
+}
+
 export default dayjs

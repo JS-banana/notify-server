@@ -75,7 +75,9 @@ export const textCardTemplate = (data: TextCardTemplateProps) => {
     // 彩蛋逻辑处理
     if (CONFIG.my_love_message_content[len - 1].includes('彩蛋')) {
       // 为彩蛋消息时需要二次触发，两次随机都一样时触发
-      const current = getRandomRange(0, CONFIG.my_love_message_content?.length || 0)
+      // 为确保随机的概率相对稳定，需要设定一个固定值，如：8 * 8 = 64
+      const Max = Math.floor(CONFIG.my_love_message_egg_probability / len)
+      const current = getRandomRange(0, Max)
       if (len === current) {
         // 🎉彩蛋
         len = current

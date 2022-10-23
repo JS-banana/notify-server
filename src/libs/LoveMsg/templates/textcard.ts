@@ -36,7 +36,7 @@ export const textCardTemplate = (data: TextCardTemplateProps) => {
   const dateLength = dayjs(date).diff(CONFIG.start_stamp, 'day')
 
   // 拼接内容
-  let description = `${area} | ${today} | ${week}`
+  let description = `📍${area} | ${today} | ${week}`
 
   if (CONFIG.date_lunarInfo && lunarInfo) {
     const { festival, lunar_festival, jieqi, lubarmonth, lunarday } = lunarInfo
@@ -46,22 +46,22 @@ export const textCardTemplate = (data: TextCardTemplateProps) => {
     const jieqi_info = jieqi ? `| ${jieqi}` : ''
 
     description += ` ${festival_info}
-农历 | ${lubarmonth}${lunarday} ${lunar_festival_info} ${jieqi_info}`
+📆农历 | ${lubarmonth}${lunarday} ${lunar_festival_info} ${jieqi_info}\n`
   }
 
-  description += `\n今日天气状况：
-天气：${weather}
-${wind}：${windsc}
-温度：${lowest} ~ ${highest}
-湿度：${humidity}\n`
+  description += `\n🖼今日天气状况：
+⛅天气：${weather}
+🎐${wind}：${windsc}
+🌡温度：${lowest} ~ ${highest}
+💦湿度：${humidity}\n`
 
   if (weather.includes('雨')) {
-    description += `降雨概率：${pop}%
-降雨量：${pcpn}mm\n`
+    description += `🌧降雨概率：${pop}%
+💧降雨量：${pcpn}mm\n`
   }
   // 生活指数提示
   if (CONFIG.weather_tips && tips) {
-    description += `
+    description += `\n📋小建议:
 ${tips}\n`
   }
 

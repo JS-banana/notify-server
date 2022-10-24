@@ -94,7 +94,9 @@ export const textCardTemplate = (data: TextCardTemplateProps) => {
       if (birthdayInfo.who === 'boy') len = CONFIG.my_love_message_content.length - 1
     }
 
-    description += `\n${CONFIG.my_love_message_content[len - 1]}\n`
+    const text = CONFIG.my_love_message_content[len - 1]
+
+    if (text) description += `\n${text}\n`
   }
 
   // 每日情话

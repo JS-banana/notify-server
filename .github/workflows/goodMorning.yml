@@ -26,9 +26,9 @@ jobs:
 
       # 2. 设置pnpm包管理器
       - name: Install pnpm
-        uses: pnpm/action-setup@v3
+        uses: pnpm/action-setup@v2.0.1
         with:
-          version: 6.15.1
+          version: 7
 
       # 3. 设置Node环境
       - name: Set node version to 16

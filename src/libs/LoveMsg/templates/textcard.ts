@@ -11,7 +11,9 @@
 
 import dayjs from '../../../utils/dayjs'
 import { getConfig } from '../../../utils/getConfig'
-import { getContentByDay, getRandomRange } from './_util'
+import { getLoveMessage } from './_loveMessage'
+import { getContentByDay } from './_memorial'
+import { getRandomRange } from './_util'
 
 const CONFIG = getConfig().loveMsg
 
@@ -68,64 +70,31 @@ export const textCardTemplate = (data: TextCardTemplateProps) => {
   // 纪念日相关日期内容处理
   description = getContentByDay(description, CONFIG, date, birthdayInfo)
 
-  // 自定义 love message
-  if (CONFIG.my_love_message_show) {
-    let len = getRandomRange(0, CONFIG.my_love_message_content?.length || 0)
-    if (len === 0) return
-    // 彩蛋逻辑处理
-    if (CONFIG.my_love_message_content[len - 1].includes('彩蛋')) {
-      // 为彩蛋消息时需要二次触发，两次随机都一样时触发
-      // 为确保随机的概率相对稳定，需要设定一个固定值，如：8 * 8 = 64
-      const Max = Math.floor(CONFIG.my_love_message_egg_probability / len)
-      const current = getRandomRange(0, Max)
-      if (len === current) {
-        // 🎉彩蛋
-        len = current
-      } else {
-        // 过滤掉彩蛋的内容，重新随机
-        const filterEggs = CONFIG.my_love_message_content.filter((n) => !n.includes('彩蛋'))
-        len = getRandomRange(0, filterEggs.length)
-      }
-    }
-
-    // 生日当天必出现彩蛋
-    if (birthdayInfo.todayIsBirthday) {
-      if (birthdayInfo.who === 'girl') len = CONFIG.my_love_message_content.length - 2
-      if (birthdayInfo.who === 'boy') len = CONFIG.my_love_message_content.length - 1
-    }
-
-    const text = CONFIG.my_love_message_content[len - 1]
-
-    if (text) description += `\n${text}`
-    description += '\n'
-  }
+  // 自定义 love message 以及 彩蛋
+  description = getLoveMessage(description, CONFIG, birthdayInfo)
 
   // 每日情话
   if (CONFIG.random_love && randomLove) description += `\n📋${randomLove}\n`
+
+  // 低温提醒
+  if (CONFIG.weather_low_show && lowest && +lowest.replace('℃', '') <= CONFIG.weather_low_tem) {
+    const only_one = CONFIG.weather_low_message.length === 1
+    const len = only_one ? 1 : getRandomRange(1, CONFIG.weather_low_message.length)
+    description += `\n${CONFIG.weather_low_message[len - 1].replace('{low}', lowest)}`
+  }
+
+  // 高温提醒
+  if (CONFIG.weather_hight_show && highest && +highest.replace('℃', '') >= CONFIG.weather_hight_tem) {
+    const only_one = CONFIG.weather_hight_message.length === 1
+    const len = only_one ? 1 : getRandomRange(1, CONFIG.weather_hight_message.length)
+    description += `\n${CONFIG.weather_hight_message[len - 1].replace('{hight}', highest)}`
+  }
 
   // 生活指数提示
   if (CONFIG.weather_tips && tips) {
     description += `\n📋小建议:
 ${tips}\n`
   }
-
-  // 最高温度
-  if (CONFIG.weather_tem && highest && +highest.replace('℃', '') <= 3) {
-    description += `
-哈喽哈喽~这里是来自${CONFIG.boy_name}的爱心提醒哦：
-今日最高温度仅为🥶 ${highest}，可冷可冷了~
-${CONFIG.girl_name}可要注意保暖哦~\n`
-  }
-
-  //   if (air_tips) {
-  //     description += `
-  // 出行建议：${air_tips}`
-  //   }
-
-  //   if (oneWord) {
-  //     description += `
-  // 『 ${oneWord.hitokoto} 』`
-  //   }
 
   // 内容末尾，自定义
   description += `

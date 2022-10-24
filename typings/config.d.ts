@@ -21,17 +21,21 @@ interface loveMsgProps {
   /* 点击卡片详情地址 */
   card_url: string
 
-  /**
-   * 天气生活指数提示（默认开启）
-   * @default true
-   */
+  /* 天气生活指数提示（默认开启） */
   weather_tips: boolean
-  /**
-   * 极端天气温度提醒（默认开启）
-   * 卡片内容字节限制可能显示不完全
-   * @default true
-   */
-  weather_tem: boolean
+  /* 低温提醒: 是否开启 */
+  weather_low_show: boolean
+  /* 低温提醒: 0 => 最低温度低于 0℃ 时触发 */
+  weather_low_tem: number
+  /* 低温提醒: 提醒内容 */
+  weather_low_message: Array<string>
+
+  /* 高温提醒: 是否开启 */
+  weather_hight_show: boolean
+  /* 高温提醒: 30 => 最高温度高于 30℃ 时触发 */
+  weather_hight_tem: number
+  /* 高温提醒: 提醒内容 */
+  weather_hight_message: Array<string>
 
   /* 需要提醒的纪念日: 日期 */
   memorial_day: string
@@ -45,7 +49,7 @@ interface loveMsgProps {
   memorial_day_day: number
 
   /* 女朋友的生日 是否开启 */
-  girl_birthday_show: true
+  girl_birthday_show: boolean
   /* 女朋友的生日 12月15日 */
   girl_birthday_date: string
   /* 女朋友的生日: 提醒内容，这里的 {day} 为固定替换模板，不可更改 */
@@ -67,7 +71,8 @@ interface loveMsgProps {
   boy_birthday_day: number
 
   /* 我的自定义情话、消息 */
-  my_love_message_show: true
+  my_love_message_show: boolean
+  /* 自定义情话内容 */
   my_love_message_content: Array<string>
   /* 设置概率最大公约数，1/64 的概率 */
   my_love_message_egg_probability: number

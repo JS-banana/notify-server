@@ -17,23 +17,13 @@ import { getRandomRange } from './_util'
 
 const CONFIG = getConfig().loveMsg
 
+/**
+ * 卡片: 天气、日期、黄历
+ */
 export const textCardTemplate = (data: TextCardTemplateProps) => {
-  const {
-    area,
-    date,
-    weather,
-    highest,
-    lowest,
-    wind,
-    windsc,
-    humidity,
-    week,
-    pop,
-    pcpn,
-    tips,
-    lunarInfo,
-    randomLove,
-  } = data
+  const { area, date, weather, highest, lowest, wind, windsc, week, pop, tips, lunarInfo } = data
+  // 是否超过512字节
+  let isMoreThan = false
 
   // 今日、恋爱天数
   const today = `${date.replace('-', '年').replace('-', '月')}日`
@@ -56,25 +46,9 @@ export const textCardTemplate = (data: TextCardTemplateProps) => {
   description += `\n🖼今日天气状况：
 ⛅天气：${weather}
 🎐${wind}：${windsc}
-🌡温度：${lowest} ~ ${highest}
-💦湿度：${humidity}\n`
+🌡温度：${lowest} ~ ${highest}\n`
 
-  if (weather.includes('雨')) {
-    description += `🌧降雨概率：${pop}%
-💧降雨量：${pcpn}mm\n`
-  }
-
-  // 保存生日信息，为彩蛋逻辑处理使用
-  const birthdayInfo = { todayIsBirthday: false, who: '' }
-
-  // 纪念日相关日期内容处理
-  description = getContentByDay(description, CONFIG, date, birthdayInfo)
-
-  // 自定义 love message 以及 彩蛋
-  description = getLoveMessage(description, CONFIG, birthdayInfo)
-
-  // 每日情话
-  if (CONFIG.random_love && randomLove) description += `\n📋${randomLove}\n`
+  if (weather.includes('雨')) description += `🌧降雨概率：${pop}%\n`
 
   // 低温提醒
   if (CONFIG.weather_low_show && lowest && +lowest.replace('℃', '') <= CONFIG.weather_low_tem) {
@@ -90,6 +64,40 @@ export const textCardTemplate = (data: TextCardTemplateProps) => {
     description += `\n${CONFIG.weather_hight_message[len - 1].replace('{hight}', highest)}`
   }
 
+  // 第二卡片不开启时才展示
+  if (!CONFIG.tips_card_show) {
+    const birthdayInfo = { todayIsBirthday: false, who: '', isEmpty: true }
+
+    // 保留原始数据，为了恢复时使用
+    const cache = description
+
+    // 纪念日相关日期内容处理
+    description = getContentByDay(description, CONFIG, date, birthdayInfo)
+
+    // 自定义 love message 以及 彩蛋
+    description = getLoveMessage(description, CONFIG, birthdayInfo)
+
+    /**
+     * 当第二卡片中的数据在此展示时，需要计算内容长度是否大于 512 字节
+     */
+    const cache_before = description
+    if (CONFIG.weather_tips && tips) {
+      description += `\n📋小建议:
+${tips}\n`
+    }
+    // 内容末尾，自定义
+    if (CONFIG.card_end_message) description += `\n${CONFIG.card_end_message}`
+
+    const byteLength = Buffer.byteLength(description, 'utf8')
+    // 大于512字节是，恢复默认，开启第二卡片
+    if (byteLength > 512) {
+      description = cache
+      isMoreThan = true
+    } else {
+      description = cache_before
+    }
+  }
+
   // 生活指数提示
   if (CONFIG.weather_tips && tips) {
     description += `\n📋小建议:
@@ -97,19 +105,64 @@ ${tips}\n`
   }
 
   // 内容末尾，自定义
-  description += `
-  [ 点击查看每日新闻 ] ❤️ 🧡 💛 💚 💖`
+  if (CONFIG.card_end_message) description += `${CONFIG.card_end_message}`
 
-  const title = `今天是我们相恋的第 ${dateLength} 天`
+  // 加粗标题
+  const title = CONFIG.start_stamp_message.replace('{day}', `${dateLength}`)
+
+  // const byteLength = Buffer.byteLength(description, 'utf8')
+  // console.log('字节长度', byteLength)
+
+  return {
+    isMoreThan, // 是否超过了 512 字符
+    msgtype: 'textcard',
+    textcard: {
+      title,
+      description,
+      // url: 'https://api.lovelive.tools/api/SweetNothings',
+      // url: 'https://v1.jinrishici.com/all.svg',
+      url: `${CONFIG.card_url}`, // 60s看世界
+      btntxt: `By${CONFIG.boy_name}`,
+    },
+  }
+}
+
+/**
+ * 卡片：信息提醒
+ */
+export const textCardImportantTips = (data: TextCardTemplateProps) => {
+  const { date, oneWord } = data
+  let description = ''
+  // 保存生日信息，为彩蛋逻辑处理使用
+  const birthdayInfo = { todayIsBirthday: false, who: '', isEmpty: true }
+
+  // 纪念日相关日期内容处理
+  description = getContentByDay(description, CONFIG, date, birthdayInfo)
+
+  // 如果存在内容，需求添加换行
+  if (!birthdayInfo.isEmpty) description += '\n'
+
+  // 自定义 love message 以及 彩蛋
+  description = getLoveMessage(description, CONFIG, birthdayInfo)
+
+  // 一言
+  if (CONFIG.tips_card_oneWord)
+    description += `\n${oneWord?.hitokoto}—— ${oneWord?.creator}「${oneWord?.from}」`
+
+  // 内容末尾，自定义
+  description += CONFIG.tips_card_end_message
+
+  // 加粗标题
+  const title = CONFIG.tips_card_title
 
   return {
     msgtype: 'textcard',
     textcard: {
       title,
       description,
-      //   url: 'https://api.lovelive.tools/api/SweetNothings',
-      //   url: 'https://v1.jinrishici.com/all.svg',
-      url: `${CONFIG.card_url}`, // 60s看世界
+      // url: 'https://api.lovelive.tools/api/SweetNothings',
+      // url: 'https://v1.jinrishici.com/all.svg',
+      url: `${CONFIG.tips_card_url}`, // 60s看世界
       btntxt: `By${CONFIG.boy_name}`,
     },
   }

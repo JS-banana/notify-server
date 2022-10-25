@@ -6,7 +6,7 @@ import API from '../../api/loveMsg'
 import { getConfig } from '../../utils/getConfig'
 import { wxNotify } from '../WxNotify'
 import { textTemplate } from './templates/text'
-import { textCardTemplate } from './templates/textcard'
+import { textCardImportantTips, textCardTemplate } from './templates/textcard'
 
 const CONFIG = getConfig().loveMsg
 
@@ -25,8 +25,9 @@ const goodWord = async () => {
     ])
 
     // 过滤掉异常数据
-    const [sayLove, caiHongpi, oneWord, songLyrics, oneMagazines, netEaseCloud, dayEnglish] =
-      dataSource.map((n) => (n.status === 'fulfilled' ? n.value : null))
+    const [sayLove, caiHongpi, oneWord, songLyrics, oneMagazines, netEaseCloud, dayEnglish] = dataSource.map(
+      (n) => (n.status === 'fulfilled' ? n.value : null)
+    )
 
     // 对象写法
     const data: any = {
@@ -54,12 +55,21 @@ const weatherInfo = async () => {
     const weather = await API.getWeather(CONFIG.city_name)
     if (weather) {
       const lunarInfo = await API.getLunarDate(weather.date)
-      const randomLove = await API.getRandomLove() // 随机一句情话
-      const template = textCardTemplate({ ...weather, lunarInfo, randomLove })
+      const oneWord = await API.getOneWord()
+      const template = textCardTemplate({ ...weather, lunarInfo })
+      const { isMoreThan, ...args } = template
+
       console.log('weatherInfo', template)
 
       // 发送消息
-      await wxNotify(template)
+      await wxNotify(args)
+
+      // 手动开启、或者超出字节自动开启
+      if (CONFIG.tips_card_show || isMoreThan) {
+        const tips = textCardImportantTips({ ...weather, lunarInfo, oneWord })
+        console.log('tips', tips)
+        if (tips.textcard.description.replace('\n', '').length) await wxNotify(tips)
+      }
     }
   } catch (error) {
     console.log('weatherInfo:err', error)

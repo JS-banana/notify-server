@@ -4,20 +4,18 @@
 interface loveMsgProps {
   /* 与女朋友相识的日子 */
   start_stamp: string
+  /* 卡片标题信息：今天是我们相恋的第 {day} 天，这里的 {day} 为固定替换相恋多久 */
+  start_stamp_message: string
   /* 女朋友所在城市（不要带‘市’） */
   city_name: string
   /* 对女朋友的爱称 */
   girl_name: string
   /* 对自己的称呼 */
   boy_name: string
-
-  /**
-   * 农历信息（默认开启）
-   * @default true
-   */
+  /* 农历信息 */
   date_lunarInfo: boolean
-  /* 随机一句情话 */
-  random_love: boolean
+  /* 卡片末尾自定义信息 */
+  card_end_message: string
   /* 点击卡片详情地址 */
   card_url: string
 
@@ -36,6 +34,17 @@ interface loveMsgProps {
   weather_hight_tem: number
   /* 高温提醒: 提醒内容 */
   weather_hight_message: Array<string>
+
+  /* 第二卡片 */
+  tips_card_show: boolean
+  /* 卡片标题信息（加粗显示） */
+  tips_card_title: string
+  /* 卡片末尾自定义信息（为空则不显示） */
+  tips_card_end_message: string
+  /* 是否显示随机一言 */
+  tips_card_oneWord: boolean
+  /* 点击卡片详情地址 */
+  tips_card_url: string
 
   /* 需要提醒的纪念日: 日期 */
   memorial_day: string

@@ -3,6 +3,7 @@ import dayjs from '../../../utils/dayjs'
 interface IBirthdayInfo {
   todayIsBirthday: boolean
   who: string
+  isEmpty: boolean
 }
 
 /**
@@ -47,13 +48,16 @@ export const getContentByDay = (
     const DAY = dayjs(currentYear + memorial_day.substring(5)).diff(dayjs(), 'day')
     // 当天
     if (DAY === 0) {
-      const year = dayjs().diff(dayjs(memorial_day), 'year')
+      const year = dayjs(currentDay).diff(dayjs(memorial_day), 'year')
       text = memorial_day_message_now.replace('{year}', `${year}`)
     }
     // 倒计时
     if (DAY > 0 && DAY <= memorial_day_day) text = memorial_day_message.replace('{day}', `${DAY}`)
 
-    if (text) template += `\n${text}`
+    if (text) {
+      template += `\n${text}`
+      birthdayInfo.isEmpty = false
+    }
   }
 
   /**
@@ -62,7 +66,7 @@ export const getContentByDay = (
   if (girl_birthday_show) {
     let text = ''
     // 相差天数
-    const DAY = dayjs(currentYear + girl_birthday_date).diff(dayjs(), 'day')
+    const DAY = dayjs(currentYear + girl_birthday_date).diff(dayjs(currentDay), 'day')
     // 当天
     if (DAY === 0) {
       text = girl_birthday_message_now
@@ -73,7 +77,10 @@ export const getContentByDay = (
     // 倒计时
     if (DAY > 0 && DAY <= girl_birthday_day) text = girl_birthday_message.replace('{day}', `${DAY}`)
 
-    if (text) template += `\n${text}`
+    if (text) {
+      template += `\n${text}`
+      birthdayInfo.isEmpty = false
+    }
   }
 
   /**
@@ -82,7 +89,7 @@ export const getContentByDay = (
   if (boy_birthday_show) {
     let text = ''
     // 相差天数
-    const DAY = dayjs(currentYear + boy_birthday_date).diff(dayjs(), 'day')
+    const DAY = dayjs(currentYear + boy_birthday_date).diff(dayjs(currentDay), 'day')
     // 当天
     if (DAY === 0) {
       text = boy_birthday_message_now
@@ -93,7 +100,10 @@ export const getContentByDay = (
     // 倒计时
     if (DAY > 0 && DAY <= boy_birthday_day) text = boy_birthday_message.replace('{day}', `${DAY}`)
 
-    if (text) template += `\n${text}`
+    if (text) {
+      template += `\n${text}`
+      birthdayInfo.isEmpty = false
+    }
   }
 
   return template

@@ -110,6 +110,14 @@ interface ResLunarDateProps {
   lubarmonth: string
   lunarday: string
   jieqi: string
+  /* 宜 */
+  fitness: string
+  /* 忌 */
+  taboo: string
+  /* 天干地支：戊戌·乙丑·庚戌 */
+  tiangandizhiyear: string
+  tiangandizhimonth: string
+  tiangandizhiday: string
 }
 
 // 土味情话

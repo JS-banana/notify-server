@@ -45,10 +45,10 @@ export const getContentByDay = (
   if (memorial_day_show) {
     let text = ''
     // 相差天数
-    const DAY = dayjs(currentYear + memorial_day.substring(5)).diff(dayjs(), 'day')
+    const DAY = dayjs(currentYear + memorial_day.substring(5)).diff(currentDay, 'day')
     // 当天
     if (DAY === 0) {
-      const year = dayjs(currentDay).diff(dayjs(memorial_day), 'year')
+      const year = dayjs(currentDay).diff(memorial_day, 'year')
       text = memorial_day_message_now.replace('{year}', `${year}`)
     }
     // 倒计时
@@ -66,7 +66,7 @@ export const getContentByDay = (
   if (girl_birthday_show) {
     let text = ''
     // 相差天数
-    const DAY = dayjs(currentYear + girl_birthday_date).diff(dayjs(currentDay), 'day')
+    const DAY = dayjs(`${currentYear}/${girl_birthday_date}`).diff(currentDay, 'day')
     // 当天
     if (DAY === 0) {
       text = girl_birthday_message_now
@@ -89,7 +89,7 @@ export const getContentByDay = (
   if (boy_birthday_show) {
     let text = ''
     // 相差天数
-    const DAY = dayjs(currentYear + boy_birthday_date).diff(dayjs(currentDay), 'day')
+    const DAY = dayjs(`${currentYear}/${boy_birthday_date}`).diff(currentDay, 'day')
     // 当天
     if (DAY === 0) {
       text = boy_birthday_message_now

@@ -59,7 +59,7 @@ const weatherInfo = async () => {
       const template = textCardTemplate({ ...weather, lunarInfo })
       const { isMoreThan, ...args } = template
 
-      console.log('weatherInfo', template)
+      console.log('weatherInfo', args)
 
       // 发送消息
       await wxNotify(args)

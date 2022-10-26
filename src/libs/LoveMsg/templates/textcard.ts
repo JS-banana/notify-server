@@ -43,6 +43,21 @@ export const textCardTemplate = (data: TextCardTemplateProps) => {
 📆农历 | ${lubarmonth}${lunarday} ${lunar_festival_info} ${jieqi_info}\n`
   }
 
+  // 黄历信息
+  if (CONFIG.date_huangli && lunarInfo) {
+    let isEmpty = true
+
+    if (lunarInfo.fitness) {
+      description += `\n🌝【宜】${lunarInfo.fitness.replace(/\./g, ' ')}\n`
+      isEmpty = false
+    }
+
+    if (lunarInfo.taboo) {
+      if (isEmpty) description += '\n'
+      description += `🌚【忌】${lunarInfo.taboo.replace(/\./g, ' ')}\n`
+    }
+  }
+
   description += `\n🖼今日天气状况：
 ⛅天气：${weather}
 🎐${wind}：${windsc}
@@ -77,24 +92,33 @@ export const textCardTemplate = (data: TextCardTemplateProps) => {
     // 自定义 love message 以及 彩蛋
     description = getLoveMessage(description, CONFIG, birthdayInfo)
 
+    // 根据是否有重要消息自动开启第二卡片
+    if (CONFIG.tips_card_show_byMessage) {
+      // 重要消息不为空：纪念日、生日、彩蛋，其他普通消息不算在内
+      // 则独立显示第二卡片
+      if (!birthdayInfo.isEmpty) isMoreThan = true
+    }
+
     /**
      * 当第二卡片中的数据在此展示时，需要计算内容长度是否大于 512 字节
      */
-    const cache_before = description
-    if (CONFIG.weather_tips && tips) {
-      description += `\n📋小建议:
-${tips}\n`
-    }
-    // 内容末尾，自定义
-    if (CONFIG.card_end_message) description += `\n${CONFIG.card_end_message}`
+    if (!isMoreThan) {
+      const cache_before = description
+      if (CONFIG.weather_tips && tips) {
+        description += `\n📋小建议:
+  ${tips}\n`
+      }
+      // 内容末尾，自定义
+      if (CONFIG.card_end_message) description += `\n${CONFIG.card_end_message}`
 
-    const byteLength = Buffer.byteLength(description, 'utf8')
-    // 大于512字节是，恢复默认，开启第二卡片
-    if (byteLength > 512) {
-      description = cache
-      isMoreThan = true
-    } else {
-      description = cache_before
+      const byteLength = Buffer.byteLength(description, 'utf8')
+      // 大于512字节是，恢复默认，开启第二卡片
+      if (byteLength > 512) {
+        description = cache
+        isMoreThan = true
+      } else {
+        description = cache_before
+      }
     }
   }
 
@@ -139,7 +163,7 @@ export const textCardImportantTips = (data: TextCardTemplateProps) => {
   // 纪念日相关日期内容处理
   description = getContentByDay(description, CONFIG, date, birthdayInfo)
 
-  // 如果存在内容，需求添加换行
+  // 如果存在内容，需要添加换行
   if (!birthdayInfo.isEmpty) description += '\n'
 
   // 自定义 love message 以及 彩蛋

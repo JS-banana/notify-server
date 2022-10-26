@@ -68,7 +68,7 @@ const weatherInfo = async () => {
       if (CONFIG.tips_card_show || isMoreThan) {
         const tips = textCardImportantTips({ ...weather, lunarInfo, oneWord })
         console.log('tips', tips)
-        if (tips.textcard.description.replace('\n', '').length) await wxNotify(tips)
+        if (tips.textcard.description.replace(/\n/g, '').length) await wxNotify(tips)
       }
     }
   } catch (error) {

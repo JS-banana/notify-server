@@ -20,6 +20,8 @@ loveMsg:
   boy_name: 崽崽
   # 农历信息（默认开启）
   date_lunarInfo: true
+  # 黄历信息（默认关闭）
+  date_huangli: true
   # 卡片末尾自定义信息（为空则不显示）
   card_end_message: "\n今天也是充满希望的一天~"
   # 点击卡片详情地址
@@ -61,6 +63,9 @@ loveMsg:
   # 当第二卡片未开启，且第一卡片内容超过512字节时，算法会强制执行开启第二卡片的逻辑，把相关内容在第二卡片展示
   #
   tips_card_show: false
+  # 在有信息提醒时直接启用第二卡片展示，如 纪念日提醒、生日、彩蛋等
+  # 如果你选择true：在无信息时不展示，有信息时会自动开启
+  tips_card_show_byMessage: true
   # 卡片标题信息（加粗显示）
   tips_card_title: 你有新短信息提醒，请注意查收~
   # 卡片末尾自定义信息（为空则不显示）

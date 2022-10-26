@@ -14,6 +14,8 @@ interface loveMsgProps {
   boy_name: string
   /* 农历信息 */
   date_lunarInfo: boolean
+  /* 黄历信息 */
+  date_huangli: boolean
   /* 卡片末尾自定义信息 */
   card_end_message: string
   /* 点击卡片详情地址 */
@@ -37,6 +39,8 @@ interface loveMsgProps {
 
   /* 第二卡片 */
   tips_card_show: boolean
+  /* 在有信息提醒时直接启用第二卡片展示，如 纪念日提醒、生日、彩蛋等 */
+  tips_card_show_byMessage: boolean
   /* 卡片标题信息（加粗显示） */
   tips_card_title: string
   /* 卡片末尾自定义信息（为空则不显示） */

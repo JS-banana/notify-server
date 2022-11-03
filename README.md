@@ -20,7 +20,9 @@
 <p align="center">微信通知，每天给女朋友发早安、情话、诗句、天气信息等</p>
 <p align="center">微信通知能力的核心链路已完成，就消息内容而言不限，基于此，可以根据个人需求完成各种私人定制</p>
 <p align="center">
-  <sub>Support this project by starring and sharing it. [Follow me](https://github.com/JS-banana) to see what other cool projects I'm working on.</sub>
+  <sub>
+    Support this project by starring and sharing it. <a href="https://github.com/JS-banana">Follow me</a> to see what other cool projects I'm working on.
+  </sub>
 </p>
 
 <!-- [![ci](https://github.com/JS-banana/notify-server/actions/workflows/goodMorning.yml/badge.svg)](https://github.com/JS-banana/notify-server/actions/workflows/goodMorning.yml) -->

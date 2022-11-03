@@ -96,7 +96,10 @@ export const textCardTemplate = (data: TextCardTemplateProps) => {
     if (CONFIG.tips_card_show_byMessage) {
       // 重要消息不为空：纪念日、生日、彩蛋，其他普通消息不算在内
       // 则独立显示第二卡片
-      if (!birthdayInfo.isEmpty) isMoreThan = true
+      if (!birthdayInfo.isEmpty) {
+        isMoreThan = true
+        description = cache
+      }
     }
 
     /**

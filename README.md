@@ -19,6 +19,9 @@
 
 <p align="center">微信通知，每天给女朋友发早安、情话、诗句、天气信息等</p>
 <p align="center">微信通知能力的核心链路已完成，就消息内容而言不限，基于此，可以根据个人需求完成各种私人定制</p>
+<p align="center">
+  <sub>Support this project by starring and sharing it. [Follow me](https://github.com/JS-banana) to see what other cool projects I'm working on.</sub>
+</p>
 
 <!-- [![ci](https://github.com/JS-banana/notify-server/actions/workflows/goodMorning.yml/badge.svg)](https://github.com/JS-banana/notify-server/actions/workflows/goodMorning.yml) -->
 <!-- [![ci](https://github.com/JS-banana/notify-server/actions/workflows/goodAfternoon.yml/badge.svg)](https://github.com/JS-banana/notify-server/actions/workflows/goodAfternoon.yml)
@@ -26,13 +29,19 @@
 
 ## 已添加功能
 
+> 建议直接查看 [config.yml](config.yml) 配置文件，里面有详细的配置功能说明~
+
 - [x] 每天给女友发早安和土味情话
   <details><summary>点击查看详细内容</summary>
   
   - 个人定制化信息
   - 天气信息
   - 农历信息
+  - 黄历信息
   - 节日信息
+  - 生日提醒
+  - 纪念日提醒
+  - 彩蛋消息
   - 每日一言
   - 最美宋词
   - 雷人笑话
@@ -41,8 +50,6 @@
   - 睡前故事
   - 60s看世界
   </details>
-
-<sub>Support this project by starring and sharing it. [Follow me](https://github.com/JS-banana) to see what other cool projects I'm working on.</sub>
 
 ## 效果
 

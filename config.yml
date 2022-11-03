@@ -87,7 +87,7 @@ loveMsg:
   # 需要提醒的纪念日: 提醒内容，当天
   memorial_day_message_now: 👫执子之手，与子偕老。宝~，今天可是我们恋爱{year}周年啦
   # 需要提醒的纪念日: 倒计时多久时开始提醒，单位天
-  memorial_day_day: 52
+  memorial_day_day: 32
 
   # 👧
   # 女朋友生日
@@ -101,7 +101,7 @@ loveMsg:
   # 女朋友的生日: 提醒内容，当天
   girl_birthday_message_now: 👧🏻身无彩凤双飞翼，心有灵犀一点通。鱼崽崽~，生日快乐哦🎂，今天可是我宝的生日🤗~
   # 女朋友的生日: 倒计时多久时开始提醒，单位天
-  girl_birthday_day: 52
+  girl_birthday_day: 32
 
   # 👦
   # 男朋友生日
@@ -115,7 +115,7 @@ loveMsg:
   # 男朋友的生日: 提醒内容，当天
   boy_birthday_message_now: 👦🏻忆君心似西江水 日夜东流无歇时。帅崽崽~，生日快乐哦🎂，今天可是我宝的生日🤗~
   # 男朋友的生日: 倒计时多久时开始提醒，单位天
-  boy_birthday_day: 52
+  boy_birthday_day: 32
 
   #
   # 我的自定义情话、消息

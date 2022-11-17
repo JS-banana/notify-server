@@ -21,7 +21,7 @@ loveMsg:
   # 农历信息（默认开启）
   date_lunarInfo: true
   # 黄历信息（默认关闭）
-  date_huangli: true
+  date_huangli: false
   # 卡片末尾自定义信息（为空则不显示）
   card_end_message: "\n今天也是充满希望的一天~"
   # 点击卡片详情地址

@@ -53,8 +53,9 @@ class API {
 
   // 天气
   async getWeather(city_name: string): Promise<IWeatherResponseProps> {
-    const res = await getTian({ url: LoveMsgURL.weather, params: { city: city_name } })
-    console.log(res)
+    // 默认返回7天的数据，指定type只返回1天
+    const res = await getTian({ url: LoveMsgURL.weather, params: { city: city_name, type: '1' } })
+    console.log('weather', res)
     return res?.[0]
   }
 
@@ -129,7 +130,8 @@ class API {
     try {
       const response = await axios(LoveMsgURL.oneWord, { timeout: 60000 })
       return response.data
-    } catch (error) {
+    }
+    catch (error) {
       console.log(error)
       return null
     }
@@ -140,7 +142,8 @@ class API {
     try {
       const response = await axios(LoveMsgURL.random_love, { timeout: 60000 })
       return response.data
-    } catch (error) {
+    }
+    catch (error) {
       console.log(error)
       return null
     }

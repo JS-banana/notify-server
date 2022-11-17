@@ -1,4 +1,19 @@
-// 定义天气返回值类型
+// 定义天气返回值类型 https://www.tianapi.com/apiview/72
+
+interface IAlarmlistItemProps {
+  /** 预警省份 */
+  province: string
+  /** 预警城市 */
+  city: string
+  /** 预警级别 */
+  level: string
+  /** 预警类型 */
+  type: string
+  /** 预警内容 */
+  content: string
+  /** 预警时间 */
+  time: string
+}
 interface IWeatherResponseProps {
   /** 2021-12-18 */
   date: string
@@ -16,8 +31,6 @@ interface IWeatherResponseProps {
   humidity: string
   /** 降雨量 */
   pcpn: string
-  /** 降雨概率 */
-  pop: string
   /** 当前温度 4 */
   real: string
   /** 最高温度 8 */
@@ -26,6 +39,8 @@ interface IWeatherResponseProps {
   lowest: string
   /** 生活指数提示 */
   tips: string
+  /** 天气预警列表（七天无此字段） */
+  alarmlist: IAlarmlistItemProps[]
 }
 
 interface IVerseProps {

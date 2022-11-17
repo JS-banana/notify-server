@@ -21,7 +21,7 @@ const CONFIG = getConfig().loveMsg
  * 卡片: 天气、日期、黄历
  */
 export const textCardTemplate = (data: TextCardTemplateProps) => {
-  const { area, date, weather, highest, lowest, wind, windsc, week, pop, tips, lunarInfo } = data
+  const { area, date, weather, highest, lowest, wind, windsc, week, pcpn, tips, lunarInfo } = data
   // 是否超过512字节
   let isMoreThan = false
 
@@ -63,20 +63,20 @@ export const textCardTemplate = (data: TextCardTemplateProps) => {
 🎐${wind}：${windsc}
 🌡温度：${lowest} ~ ${highest}\n`
 
-  if (weather.includes('雨')) description += `🌧降雨概率：${pop}%\n`
+  if (weather.includes('雨')) description += `🌧降雨量：${pcpn}mm\n`
 
   // 低温提醒
   if (CONFIG.weather_low_show && lowest && +lowest.replace('℃', '') <= CONFIG.weather_low_tem) {
     const only_one = CONFIG.weather_low_message.length === 1
     const len = only_one ? 1 : getRandomRange(1, CONFIG.weather_low_message.length)
-    description += `\n${CONFIG.weather_low_message[len - 1].replace('{low}', lowest)}`
+    description += `\n${CONFIG.weather_low_message[len - 1].replace('{low}', lowest)}\n`
   }
 
   // 高温提醒
   if (CONFIG.weather_hight_show && highest && +highest.replace('℃', '') >= CONFIG.weather_hight_tem) {
     const only_one = CONFIG.weather_hight_message.length === 1
     const len = only_one ? 1 : getRandomRange(1, CONFIG.weather_hight_message.length)
-    description += `\n${CONFIG.weather_hight_message[len - 1].replace('{hight}', highest)}`
+    description += `\n${CONFIG.weather_hight_message[len - 1].replace('{hight}', highest)}\n`
   }
 
   // 第二卡片不开启时才展示
@@ -119,7 +119,8 @@ export const textCardTemplate = (data: TextCardTemplateProps) => {
       if (byteLength > 512) {
         description = cache
         isMoreThan = true
-      } else {
+      }
+      else {
         description = cache_before
       }
     }

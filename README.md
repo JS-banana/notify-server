@@ -130,6 +130,11 @@
 2. 对于使用`GitHub Action`的用户来说，因为 Action的运行服务器是不固定的，会经常变动，目前没发现合适的解决方案
 3. 对于拥有自己服务器的同学，以及2022.6.20之前注册过应用的同学暂时不受影响
 
+### 使用问题
+
+1. 可信IP问题，参见[deploy分支](https://github.com/JS-banana/notify-server/tree/deploy)，云函数部署的解决方案，支持固定IP
+2. 可信域名的问题，见[seph1rex同学提供的解决方案（可信域名.docx）](images/可信域名.docx)（文件位置：`images/可信域名.docx`）
+
 ### 需要的变量
 
 ```txt
@@ -271,6 +276,12 @@ npm run depoly:status
 npm run depoly:log
 ```
 
+### 云函数部署（方式四）
+
+直接使用按量付费的Serverless云函数，方便快捷，腾讯云函数、阿里云函数、华为云函数等等都可以~
+
+本示例采用的是腾云函数，支持指定固定IP，可以有效解决**可信IP**的问题，详情见[deploy分支](https://github.com/JS-banana/notify-server/tree/deploy)
+
 ## 全局配置
 
 提供 [config.yml](config.yml) 配置文件，方便快速自定义调整内容参数
@@ -343,6 +354,13 @@ yml语法比json更简洁易读，比较简单，[阮一峰 YAML 语言教程](h
 ## 版权声明
 
 **[GPLv3](LICENSE) 协议**：凡使用本项目，其代码必须公开；如由此项目衍生的收费服务，必须提前告知终端用户此项目是可以免费获得及收费的理由；在本项目基础上 Fork、修改后的代码，必须采用 GPLv3 协议（**转载引用请注明作者和项目地址**）。
+
+## 鸣谢
+
+感谢一直以来支持本项目的同学，并且为本项目的发展提供了很多思路和建议~❤
+
+- [MAO12366](https://github.com/MAO12366)：图标模板贡献、云函数部署贡献
+- [seph1rex](https://github.com/seph1rex)：可信域名解决方案提供
 
 ## 请作者喝咖啡☕
 

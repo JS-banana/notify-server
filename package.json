@@ -14,13 +14,16 @@
   "bugs": {
     "url": "https://github.com/JS-banana/notify-server/issues"
   },
+  "license": "GPL-3.0 license",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/JS-banana/notify-server.git"
   },
-  "license": "GPL-3.0 license",
   "author": "JS-banana <sss213018@163.com>",
   "sideEffects": false,
+  "files": [
+    "dist"
+  ],
   "exports": {
     ".": {
       "require": "./dist/index.cjs",
@@ -31,9 +34,6 @@
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
-  "files": [
-    "dist"
-  ],
   "scripts": {
     "build": "unbuild",
     "dev": "unbuild --stub",
@@ -46,6 +46,12 @@
     "depoly:status": "pm2 status ecosystem.config.js",
     "depoly:log": "pm2 log",
     "test": "echo 你好~"
+  },
+  "dependencies": {
+    "axios": "^0.24.0",
+    "dayjs": "^1.10.7",
+    "dotenv": "^10.0.0",
+    "yaml": "^1.10.2"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.14.0",
@@ -63,11 +69,5 @@
     "typescript": "^4.5.4",
     "unbuild": "^0.6.7",
     "vite": "^2.7.3"
-  },
-  "dependencies": {
-    "axios": "^0.24.0",
-    "dayjs": "^1.10.7",
-    "dotenv": "^10.0.0",
-    "yaml": "^1.10.2"
   }
 }

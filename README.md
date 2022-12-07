@@ -126,7 +126,7 @@
 
   ```.env
   # 鱼崽小铃铛：应用ID
-  # WX_APP_ID=1000003
+  WX_APP_ID=1000003
 
   # 发送消息类型（不填默认为早晨）
   MESSAGE_TYPE=goodMorning

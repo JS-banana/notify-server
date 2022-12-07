@@ -121,25 +121,27 @@
 项目依赖于2个核心配置文件:
 
 - [`.env`](.env)：用于配置环境变量值，如：企业ID、应用ID、天行key、发送消息类型为早中晚等
+  - 复制 `.env.example`文件重命名为 `.env`，并按照要求填写对应变量值
+  - 如果你使用的是服务器或者云函数，也可以通过直接设置环境变量进行配置
 
-    ```.env
-    # 鱼崽小铃铛：应用ID
-    # WX_APP_ID=1000003
+  ```.env
+  # 鱼崽小铃铛：应用ID
+  # WX_APP_ID=1000003
 
-    # 发送消息类型（不填默认为早晨）
-    MESSAGE_TYPE=goodMorning
-    ```
+  # 发送消息类型（不填默认为早晨）
+  MESSAGE_TYPE=goodMorning
+  ```
 
 - [`config.yml`](config.yml)：用于配置女朋友的各种信息，以及纪念日提醒等，功能都在该文件进行配置
 
-    ```yml
-    # 卡片标题信息（加粗显示）：今天是我们相恋的第 {day} 天，这里的 {day} 为固定替换相恋多久
-    start_stamp_message: 今天是我们相恋的第 {day} 天
-    # 女朋友所在城市（不要带‘市’），天气接口需要使用
-    city_name: 蚌埠
-    # 女朋友的爱称
-    girl_name: 鱼崽
-    ```
+  ```yml
+  # 卡片标题信息（加粗显示）：今天是我们相恋的第 {day} 天，这里的 {day} 为固定替换相恋多久
+  start_stamp_message: 今天是我们相恋的第 {day} 天
+  # 女朋友所在城市（不要带‘市’），天气接口需要使用
+  city_name: 蚌埠
+  # 女朋友的爱称
+  girl_name: 鱼崽
+  ```
 
 > yml语法比json更简洁易读，比较简单，[阮一峰 YAML 语言教程](https://www.ruanyifeng.com/blog/2016/07/yaml.htmls)
 

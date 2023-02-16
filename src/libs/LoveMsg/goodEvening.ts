@@ -85,7 +85,7 @@ const getStory = async() => {
   const template = {
     msgtype: 'text',
     text: {
-      content: `给鱼崽的今日份睡前故事来喽：
+      content: `给笑宝的今日份睡前故事来喽：
 🌑🌒🌓🌔🌕🌝😛\n
 『${res.title}』
 ${res.content}`,

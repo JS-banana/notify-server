@@ -32,7 +32,7 @@ export const getLoveMessage = (
         birthdayInfo.isEmpty = false
       } else {
         // 过滤掉彩蛋的内容，重新随机
-        const filterEggs = config.my_love_message_content.filter((n) => !n.includes('彩蛋'))
+        const filterEggs = config.my_love_message_content.filter(n => !n.includes('彩蛋'))
         len = getRandomRange(1, filterEggs.length)
       }
     }
@@ -46,8 +46,8 @@ export const getLoveMessage = (
     const text = config.my_love_message_content[len - 1]
 
     if (text) template += `\n${text}`
-    template += '\n'
   }
+  template += '\n'
 
   return template
 }

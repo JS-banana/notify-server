@@ -51,15 +51,17 @@ interface loveMsgProps {
   tips_card_url: string
 
   /* 需要提醒的纪念日: 日期 */
-  memorial_day: string
+  memorial_day: string[]
   /* 需要提醒的纪念日: 是否开启 */
-  memorial_day_show: boolean
+  memorial_day_show: boolean[]
   /* 需要提醒的纪念日: 提醒内容，这里的 {day} 为固定替换模板，不可更改 */
-  memorial_day_message: string
+  memorial_day_message: string[]
   /* 需要提醒的纪念日: 提醒内容，当天 */
-  memorial_day_message_now: string
+  memorial_day_message_now: string[]
   /* 需要提醒的纪念日: 倒计时多久时开始提醒，单位天 */
-  memorial_day_day: number
+  memorial_day_day: number[]
+  /* 需要独立卡片显示: 当天默认启用独立卡片显示  */
+  memorial_card_show: boolean[]
 
   /* 女朋友的生日 是否开启 */
   girl_birthday_show: boolean

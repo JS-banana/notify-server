@@ -6,6 +6,33 @@ interface IBirthdayInfo {
   isEmpty: boolean
 }
 
+const getMemorialText = (
+  currentDay: string,
+  memorial_day: string,
+  memorial_day_day: number,
+  memorial_day_message: string,
+  memorial_day_message_now: string) => {
+  const currentYear = currentDay.substring(0, 4)
+
+  let text = ''
+  let now = false
+  // 相差天数
+  const DAY = dayjs(currentYear + memorial_day.substring(5)).diff(currentDay, 'day')
+  // 当天
+  if (DAY === 0) {
+    now = true
+    const year = dayjs(currentDay).diff(memorial_day, 'year')
+    text = memorial_day_message_now.replace('{year}', `${year > 0 ? year : ''}`)
+  }
+  // 倒计时
+  if (DAY > 0 && DAY <= memorial_day_day) text = memorial_day_message.replace('{day}', `${DAY}`)
+
+  return {
+    text,
+    now
+  }
+}
+
 /**
  * 纪念日 日期相关
  */
@@ -25,6 +52,7 @@ export const getContentByDay = (
     memorial_day_message,
     memorial_day_message_now,
     memorial_day_day,
+    memorial_card_show,
     // 女朋友生日
     girl_birthday_show,
     girl_birthday_date,
@@ -42,23 +70,39 @@ export const getContentByDay = (
   /**
    * 相识纪念日的逻辑处理
    */
-  if (memorial_day_show) {
-    let text = ''
-    // 相差天数
-    const DAY = dayjs(currentYear + memorial_day.substring(5)).diff(currentDay, 'day')
-    // 当天
-    if (DAY === 0) {
-      const year = dayjs(currentDay).diff(memorial_day, 'year')
-      text = memorial_day_message_now.replace('{year}', `${year}`)
+  memorial_day_show.forEach((isShow, index) => {
+    if (isShow) {
+      const obj = getMemorialText(
+        currentDay,
+        memorial_day[index],
+        memorial_day_day[index],
+        memorial_day_message[index],
+        memorial_day_message_now[index])
+      //
+      if (obj.text) {
+        template += `\n${obj.text}`
+        // 手动开启或者当天
+        if (memorial_card_show[index] || obj.now) birthdayInfo.isEmpty = false
+      }
     }
-    // 倒计时
-    if (DAY > 0 && DAY <= memorial_day_day) text = memorial_day_message.replace('{day}', `${DAY}`)
+  })
+  // if (memorial_day_show) {
+  //   let text = ''
+  //   // 相差天数
+  //   const DAY = dayjs(currentYear + memorial_day.substring(5)).diff(currentDay, 'day')
+  //   // 当天
+  //   if (DAY === 0) {
+  //     const year = dayjs(currentDay).diff(memorial_day, 'year')
+  //     text = memorial_day_message_now.replace('{year}', `${year}`)
+  //   }
+  //   // 倒计时
+  //   if (DAY > 0 && DAY <= memorial_day_day) text = memorial_day_message.replace('{day}', `${DAY}`)
 
-    if (text) {
-      template += `\n${text}`
-      birthdayInfo.isEmpty = false
-    }
-  }
+  //   if (text) {
+  //     template += `\n${text}`
+  //     birthdayInfo.isEmpty = false
+  //   }
+  // }
 
   /**
    * 女朋友生日

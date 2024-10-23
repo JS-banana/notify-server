@@ -3,12 +3,15 @@
  * @description 说早安
  */
 import API from '../../api/loveMsg'
+import { getConfig } from '../../utils/getConfig'
 import { wxNotify } from '../WxNotify'
 import { textTemplate } from './templates/text'
-import { textCardTemplate } from './templates/textcard'
+import { textCardImportantTips, textCardTemplate } from './templates/textcard'
+
+const CONFIG = getConfig().loveMsg
 
 // 美丽短句
-const goodWord = async() => {
+const goodWord = async () => {
   try {
     // 并行请求，优响相应
     const dataSource = await Promise.allSettled([
@@ -22,8 +25,9 @@ const goodWord = async() => {
     ])
 
     // 过滤掉异常数据
-    const [sayLove, caiHongpi, oneWord, songLyrics, oneMagazines, netEaseCloud, dayEnglish]
-      = dataSource.map(n => (n.status === 'fulfilled' ? n.value : null))
+    const [sayLove, caiHongpi, oneWord, songLyrics, oneMagazines, netEaseCloud, dayEnglish] = dataSource.map(
+      (n) => (n.status === 'fulfilled' ? n.value : null)
+    )
 
     // 对象写法
     const data: any = {
@@ -40,28 +44,40 @@ const goodWord = async() => {
     console.log('goodWord', template)
 
     wxNotify(template)
-  }
-  catch (error) {
+  } catch (error) {
     console.log('goodWord:err', error)
   }
 }
 
 // 天气信息
-const weatherInfo = async() => {
-  const weather = await API.getWeather('蚌埠')
-  if (weather) {
-    const lunarInfo = await API.getLunarDate(weather.date)
-    const oneWord = await API.getOneWord()
-    const template = textCardTemplate({ ...weather, lunarInfo, oneWord })
-    console.log('weatherInfo', template)
+const weatherInfo = async () => {
+  try {
+    const weather = await API.getWeather(CONFIG.city_name)
+    if (weather) {
+      const lunarInfo = await API.getLunarDate(weather.date)
+      const oneWord = await API.getOneWord()
+      const template = textCardTemplate({ ...weather, lunarInfo })
+      const { isMoreThan, ...args } = template
 
-    // 发送消息
-    await wxNotify(template)
+      console.log('weatherInfo', args)
+
+      // 发送消息
+      await wxNotify(args)
+
+      // 手动开启、或者超出字节自动开启
+      if (CONFIG.tips_card_show || isMoreThan) {
+        const tips = textCardImportantTips({ ...weather, lunarInfo, oneWord })
+        console.log('tips', tips)
+        if (tips.textcard.description.replace(/\n/g, '').length) await wxNotify(tips)
+      }
+    }
+  } catch (error) {
+    console.log('weatherInfo:err', error)
   }
 }
 
 // goodMorning
-export const goodMorning = async() => {
+export const goodMorning = async () => {
   await weatherInfo()
   await goodWord()
 }

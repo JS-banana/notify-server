@@ -5,8 +5,8 @@ import { getTian } from '../utils/http'
  * 给女朋友发送内容的相关接口
  */
 enum LoveMsgURL {
-  // 天气
-  weather = 'https://v0.yiketianqi.com/api?unescape=1&version=v61&appid=43656176&appsecret=I42og6Lm',
+  // 天气接口：默认获取最近7天的数据
+  weather = 'http://api.tianapi.com/tianqi/index',
   // 每日简报
   dailyBriefing = 'https://apis.tianapi.com/bulletin/index',
   // 今日头条
@@ -33,6 +33,8 @@ enum LoveMsgURL {
   joke = 'https://apis.tianapi.com/joke/index',
   // 一言
   oneWord = 'https://v1.hitokoto.cn/?encode=json',
+  // 随机一句情话
+  random_love = 'https://api.vvhan.com/api/love',
 }
 
 class API {
@@ -50,21 +52,11 @@ class API {
    */
 
   // 天气
-  async getWeather(city_name: string): Promise<IWeatherResponseProps | null> {
-    try {
-      const response = await axios({ url: LoveMsgURL.weather, params: { city: city_name } })
-      const result = response.data
-      // 预警天气
-      if (!result.alarm.alarm_type && !result.alarm_content)
-        result.alarm = null
-
-      console.log('天气请求成功==>', city_name)
-      return response.data
-    }
-    catch (error) {
-      console.log('天气请求失败==>', error)
-      return null
-    }
+  async getWeather(city_name: string): Promise<IWeatherResponseProps> {
+    // 默认返回7天的数据，指定type只返回1天
+    const res = await getTian({ url: LoveMsgURL.weather, params: { city: city_name, type: '1' } })
+    console.log('weather', res)
+    return res?.[0]
   }
 
   // 每日简报
@@ -136,7 +128,19 @@ class API {
   // 一言
   async getOneWord(): Promise<OneWordProps | null> {
     try {
-      const response = await axios(LoveMsgURL.oneWord, { timeout: 30000 })
+      const response = await axios(LoveMsgURL.oneWord, { timeout: 60000 })
+      return response.data
+    }
+    catch (error) {
+      console.log(error)
+      return null
+    }
+  }
+
+  // 随机一句情话
+  async getRandomLove(): Promise<string | null> {
+    try {
+      const response = await axios(LoveMsgURL.random_love, { timeout: 60000 })
       return response.data
     }
     catch (error) {

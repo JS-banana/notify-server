@@ -15,9 +15,20 @@ const WEEKS: { [key: number]: string } = {
   0: '星期日',
 }
 
+// TODO：时间统一走接口，这里的获取本地日期方法之后废弃
 export const weekToday = () => {
   const week = dayjs().get('days')
   return WEEKS[week]
+}
+
+// 日期差值
+export const getDiffByDate = (date: string): number | null => {
+  try {
+    return dayjs(date).diff(dayjs(), 'day')
+  } catch (error) {
+    console.log('日期错误', error)
+    return null
+  }
 }
 
 export default dayjs

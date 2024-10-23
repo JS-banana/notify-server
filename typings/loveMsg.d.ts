@@ -1,43 +1,46 @@
-// 定义天气返回值类型
+// 定义天气返回值类型 https://www.tianapi.com/apiview/72
+
+interface IAlarmlistItemProps {
+  /** 预警省份 */
+  province: string
+  /** 预警城市 */
+  city: string
+  /** 预警级别 */
+  level: string
+  /** 预警类型 */
+  type: string
+  /** 预警内容 */
+  content: string
+  /** 预警时间 */
+  time: string
+}
 interface IWeatherResponseProps {
   /** 2021-12-18 */
   date: string
   /** 星期六 */
   week: string
   /** 蚌埠 */
-  city: string
+  area: string
   /** 晴 */
-  wea: string
+  weather: string
   /** 西南风 */
-  win: string
+  wind: string
   /** 3-4级 */
-  win_speed_day: string
+  windsc: string
   /** 湿度：35% */
   humidity: string
-  /** 空气：67 */
-  air: string
-  /** 空气质量：良 */
-  air_level: string
-  /** 活动建议 */
-  air_tips: string
-  /** pm2.5：21 */
-  air_pm25: string
+  /** 降雨量 */
+  pcpn: string
   /** 当前温度 4 */
-  tem: string
+  real: string
   /** 最高温度 8 */
-  tem1: string
+  highest: string
   /** 最低温度 -2 */
-  tem2: string
-  alarm: IAlarmProps | null
-}
-// 预警信息
-interface IAlarmProps {
-  /** 暴雨 */
-  alarm_type: ''
-  /** 橙色 */
-  alarm_level: ''
-  /** 内容 */
-  alarm_content: ''
+  lowest: string
+  /** 生活指数提示 */
+  tips: string
+  /** 天气预警列表（七天无此字段） */
+  alarmlist: IAlarmlistItemProps[]
 }
 
 interface IVerseProps {
@@ -122,6 +125,14 @@ interface ResLunarDateProps {
   lubarmonth: string
   lunarday: string
   jieqi: string
+  /* 宜 */
+  fitness: string
+  /* 忌 */
+  taboo: string
+  /* 天干地支：戊戌·乙丑·庚戌 */
+  tiangandizhiyear: string
+  tiangandizhimonth: string
+  tiangandizhiday: string
 }
 
 // 土味情话
@@ -157,6 +168,7 @@ interface OneWordProps {
 type TextCardTemplateProps = IWeatherResponseProps & {
   lunarInfo: ResLunarDateProps
   oneWord?: OneWordProps | null
+  // randomLove: string | null
 }
 
 // goodEvening

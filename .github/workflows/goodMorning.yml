@@ -35,7 +35,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 16
-          cache: 'pnpm' # 配置缓存，优化安装性能
+          # cache: 'pnpm' # 配置缓存，优化安装性能
 
       # 4. 安装依赖
       - name: Install

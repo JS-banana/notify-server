@@ -37,9 +37,14 @@ jobs:
           node-version: 16
           # cache: 'pnpm' # 配置缓存，优化安装性能
 
-      # 4. 安装依赖
-      - name: Install
-        run: pnpm install
+     # 4. 缓存 pnpm store
+      - name: Cache pnpm store
+        uses: actions/cache@v3
+        with:
+          path: ~/.pnpm-store
+          key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-
 
       # 当前模式直接执行脚本请求接口，因此不执行构建逻辑
       # - name: Build

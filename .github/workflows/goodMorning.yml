@@ -4,40 +4,29 @@ on:
     branches:
       - master
   schedule:
-    # `分 时 天 月 周` 时按照标准时间 北京时间=标准时间+8 18表示北京时间早上2点
-    - cron: '50 23 * * *'
-# on:
-#   push:
-#     branches:
-#       - master
+    - cron: '50 23 * * *'  # 每天 23:50 UTC，即北京时间 07:50
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      # 1. checkout 仓库
+      # 1. Checkout 仓库
       - uses: actions/checkout@v3
 
-      # - name: Use Node@14.x # 步骤2
-      #   uses: actions/setup-node@v1 # 作用：安装nodejs
-      #   with:
-      #     node-version: 14
-
-      # 2. 设置pnpm包管理器
+      # 2. 设置 pnpm 包管理器
       - name: Install pnpm
-        uses: pnpm/action-setup@v2.0.1
+        uses: pnpm/action-setup@v2
         with:
           version: 7
 
-      # 3. 设置Node环境
+      # 3. 设置 Node 版本
       - name: Set node version to 16
         uses: actions/setup-node@v3
         with:
-          node-version: 16
-          # cache: 'pnpm' # 配置缓存，优化安装性能
+          node-version: '16.x'
 
-     # 4. 缓存 pnpm store
+      # 4. 缓存 pnpm store
       - name: Cache pnpm store
         uses: actions/cache@v3
         with:
@@ -46,12 +35,12 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pnpm-
 
-      # 当前模式直接执行脚本请求接口，因此不执行构建逻辑
-      # - name: Build
-      #   run: pnpm build
+      # 5. 安装依赖
+      - name: Install dependencies
+        run: pnpm install
 
-      # 5. 运行脚本
-      - name: 运行脚本
+      # 6. 运行脚本
+      - name: Run script
         run: pnpm start
         env:
           WX_COMPANY_ID: ${{ secrets.WX_COMPANY_ID }}

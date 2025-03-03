@@ -1,0 +1,29 @@
+# 该脚本是为了避免脚本自动关闭（Github 公共仓库无代码活动60天自动关闭 Action）
+
+name: Log Current Date For Active Action
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 0 1 * *' # 每月1日时运行
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Current date
+        run: |
+          bash day.sh
+
+      - name: Commit and push if changed
+        run: |-
+          git diff
+          git config --global user.email "sss213018@163.com"
+          git config --global user.name "JS-banana"
+          git pull
+          git add -A
+          git commit -m "Updated current date" || exit 0
+          git push

@@ -1,8 +1,6 @@
 name: GoodMorning
 on:
   workflow_dispatch:
-    branches:
-      - master
   schedule:
     - cron: '50 23 * * *'  # 每天 23:50 UTC，即北京时间 07:50
 
@@ -11,36 +9,39 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # 1. Checkout 仓库
-      - uses: actions/checkout@v3
+      # 1. Checkout 仓库 - 升级到最新版本
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-      # 2. 设置 pnpm 包管理器
-      - name: Install pnpm
-        uses: pnpm/action-setup@v2
+      # 2. 设置 pnpm 包管理器 - 升级到项目指定版本
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
         with:
-          version: 7
+          version: '10.14.0'
 
-      # 3. 设置 Node 版本
-      - name: Set node version to 16
-        uses: actions/setup-node@v3
+      # 3. 设置 Node 版本 - 升级到 LTS 版本
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          node-version: '16.x'
+          node-version: '20.x'
 
-      # 4. 缓存 pnpm store
-      - name: Cache pnpm store
-        uses: actions/cache@v3
+      # 4. 多层级缓存策略优化
+      - name: Cache dependencies
+        uses: actions/cache@v4
         with:
-          path: ~/.pnpm-store
+          path: |
+            ~/.pnpm-store
+            node_modules/.pnpm
           key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
             ${{ runner.os }}-pnpm-
 
-      # 5. 安装依赖
+      # 5. 安装依赖 - 使用 frozen-lockfile 确保版本一致性
       - name: Install dependencies
-        run: pnpm install
+        run: pnpm install --frozen-lockfile
 
-      # 6. 运行脚本
-      - name: Run script
+      # 6. 运行通知脚本
+      - name: Run notification script
         run: pnpm start
         env:
           WX_COMPANY_ID: ${{ secrets.WX_COMPANY_ID }}

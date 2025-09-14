@@ -2,7 +2,7 @@ name: GoodMorning
 on:
   workflow_dispatch:
   schedule:
-    - cron: '50 23 * * *'  # 每天 23:50 UTC，即北京时间 07:50
+    - cron: '50 23 * * *' # 每天 23:50 UTC，即北京时间 07:50
 
 jobs:
   build:
@@ -13,11 +13,11 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # 2. 设置 pnpm 包管理器 - 升级到项目指定版本
+      # 2. 设置 pnpm 包管理器 - 使用 package.json 中指定的版本
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
         with:
-          version: '10.14.0'
+          version: '10.x'
 
       # 3. 设置 Node 版本 - 升级到 LTS 版本
       - name: Setup Node.js

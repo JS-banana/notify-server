@@ -19,7 +19,15 @@ instance.interceptors.response.use(
     return undefined
   },
   (error) => {
-    console.log(`err${error}`) // for debug
+    // 新版本错误处理
+    if (error.response) {
+      console.log('Response error:', error.response.status, error.response.data)
+    } else if (error.request) {
+      console.log('Request error:', error.request)
+    } else {
+      console.log('Error:', error.message)
+    }
+    return Promise.reject(error)
   }
 )
 

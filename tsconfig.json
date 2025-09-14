@@ -1,15 +1,16 @@
 {
   "compilerOptions": {
-    "target": "es2017",
-    "module": "esnext",
-    "lib": ["esnext"],
-    "moduleResolution": "node",
+    "target": "ES2022",
+    "module": "ESNext",
+    "lib": ["ES2022"],
+    "moduleResolution": "bundler",
     "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
     "strict": true,
     "strictNullChecks": true,
     "resolveJsonModule": true,
-    "skipDefaultLibCheck": true,
-    "typeRoots": ["typings"]
+    "skipLibCheck": true,
+    "typeRoots": ["typings", "node_modules/@types"]
   },
   "include": ["src", "typings", "test"],
   "exclude": ["node_modules", "dist"]
